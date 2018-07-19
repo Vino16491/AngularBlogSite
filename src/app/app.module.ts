@@ -13,7 +13,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { ProfileComponent } from './profile/profile.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NavbarComponent } from './navbar/navbar.component';
-import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatChipsModule} from '@angular/material/chips';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,9 @@ import { MatToolbarModule } from '@angular/material/toolbar'
     MatCardModule,
     MatGridListModule,
     MatCheckboxModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatPaginatorModule,
+    MatChipsModule
 
   ],
   providers: [],
