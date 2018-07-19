@@ -2,12 +2,20 @@
   <mat-toolbar-row>
     <!-- <span>Third Line</span> -->
     <span class="navBar-spacer"></span>
-    <button mat-button [matMenuTriggerFor]="menu"><mat-icon class="navBar-icon">person</mat-icon></button>
-    <mat-icon class="navBar-icon">notifications</mat-icon>
+    <button mat-button [matMenuTriggerFor]="personMenu">
+      <mat-icon class="navBar-icon">person</mat-icon>
+    </button>
+    <button mat-button [matMenuTriggerFor]="notifyMenu">
+      <mat-icon class="navBar-icon">notifications</mat-icon>
+    </button>
   </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-menu #menu="matMenu" color="primary">
-  <button mat-menu-item color="primary">Login</button>
-  <button mat-menu-item color="primary">Sign Up</button>
+<mat-menu #personMenu="matMenu">
+  <button mat-menu-item>Login</button>
+  <button mat-menu-item>Sign Up</button>
+</mat-menu>
+
+<mat-menu #notifyMenu="matMenu">
+  <p>Hi There is a message for you<p>
 </mat-menu>
