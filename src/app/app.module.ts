@@ -7,17 +7,19 @@ import { MatButtonModule } from '@angular/material';
 import { MatMenuModule } from '@angular/material/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon'
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { BlogsComponent } from './blogs/blogs.component';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { ProfileComponent } from './profile/profile.component';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { NavbarComponent } from './navbar/navbar.component';
+import { MatToolbarModule } from '@angular/material/toolbar'
 @NgModule({
   declarations: [
     AppComponent,
     BlogsComponent,
-    ProfileComponent
+    ProfileComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatIconModule,
     MatCardModule,
     MatGridListModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatToolbarModule
 
   ],
   providers: [],
