@@ -1,11 +1,15 @@
 .footer{
     margin-right: auto;
     font-size: 15px;
-
 }
 
 .footerText{
     flex: auto auto 1;
     font-size: 15px;
-
+}
+.footerBar{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }

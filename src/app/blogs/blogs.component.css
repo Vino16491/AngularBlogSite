@@ -23,15 +23,17 @@ img {
     display: grid;
     grid-gap: 15px;
     grid-template-columns: auto auto auto;
+    /* grid-template-rows: auto auto auto; */
     background-color:whitesmoke;
     padding: 30px;
+    overflow:auto;
   }
   .grid-item {
     background-color: rgba(255, 255, 255, 0.8);
     /* border: 1px solid rgba(0, 0, 0, 0.8); */
     padding: 20px;
   }
-  /* .item1 {
-    grid-row-start: 1;
-    grid-row-end: 1;
-  } */
+  .paginationBlogs{
+    padding-bottom:75px;
+    margin-right: auto;
+  }
