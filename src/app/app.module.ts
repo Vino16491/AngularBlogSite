@@ -16,12 +16,16 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatChipsModule} from '@angular/material/chips';
+import { FooterComponent } from './footer/footer.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 @NgModule({
   declarations: [
     AppComponent,
     BlogsComponent,
     ProfileComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,

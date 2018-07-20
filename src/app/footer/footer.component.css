@@ -1,0 +1,11 @@
+.footer{
+    margin-right: auto;
+    font-size: 15px;
+
+}
+
+.footerText{
+    flex: auto auto 1;
+    font-size: 15px;
+
+}
