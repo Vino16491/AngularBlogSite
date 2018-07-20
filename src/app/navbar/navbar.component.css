@@ -1,10 +1,11 @@
 .navBar-icon {
-  padding: 0 14px;
+  padding: 0px;
 }
 
 .navBar-spacer {
-  flex: 1 1 auto;
+  flex: auto auto 1;
 }
 .navBar-spacer-chips{
-  flex: auto auto 1;
+  /* margin-left: auto; */
+  margin-right: auto;
 }
