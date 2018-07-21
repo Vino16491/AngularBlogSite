@@ -26,6 +26,9 @@ import { FooterComponent } from './footer/footer.component';
 /* Services Import */
 //Authservice import
 import { AuthService } from './auth.service';
+
+/* Routing Module */
+import { AppRoutingModule } from './app-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +51,8 @@ import { AuthService } from './auth.service';
     MatToolbarModule,
     MatPaginatorModule,
     MatChipsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
 
   ],
   providers: [AuthService],
