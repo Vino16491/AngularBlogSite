@@ -14,7 +14,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatChipsModule } from '@angular/material/chips';
-
+import { MatInputModule } from '@angular/material/input';
 
 /* Components */
 import { routingComponents } from './app-routing.module';
@@ -54,7 +54,8 @@ import { AppRoutingModule } from './app-routing.module';
     MatPaginatorModule,
     MatChipsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatInputModule
 
   ],
   providers: [AuthService],
