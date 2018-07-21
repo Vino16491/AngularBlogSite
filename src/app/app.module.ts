@@ -17,9 +17,10 @@ import { MatChipsModule } from '@angular/material/chips';
 
 
 /* Components */
-import { LoginPageComponent } from './login-page/login-page.component';
+import { routingComponents } from './app-routing.module';
+// import { LoginPageComponent } from './login-page/login-page.component';
 import { ProfileComponent } from './profile/profile.component';
-import { BlogsComponent } from './blogs/blogs.component';
+// import { BlogsComponent } from './blogs/blogs.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 
@@ -32,11 +33,12 @@ import { AppRoutingModule } from './app-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
-    BlogsComponent,
+    // BlogsComponent,
     ProfileComponent,
     NavbarComponent,
     FooterComponent,
-    LoginPageComponent
+    // LoginPageComponent
+    routingComponents
   ],
   imports: [
     BrowserModule,
