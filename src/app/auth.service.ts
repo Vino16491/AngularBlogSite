@@ -10,5 +10,9 @@ export class AuthService {
 
   getAuthData(){
     // return this.http.get();
+    return [
+      {"userId":"aa@a.com", "password":"pass@123"},
+      {"userId":"example@blog.com", "password":"pass@1234"},
+    ]
   }
 }

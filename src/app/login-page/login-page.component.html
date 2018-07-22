@@ -1,5 +1,5 @@
 <div align="center" style="padding: 100px;">
-  <form class="login-form ">
+  <form class="login-form " onsubmit="">
     <mat-form-field class="login-full-width">
       <input matInput placeholder="Email">
       <mat-error *ngIf="validFormControl.hasError('email') && !validFormControl.hasError('required')">
@@ -22,6 +22,6 @@
       </mat-error>
     </mat-form-field>
 
-    <button mat-stroked-button color="primary" routerLink="/blogs" style="float: right">Submit</button>
+    <button mat-stroked-button color="primary" routerLink="/blogs" style="float: right" type="submit">Submit</button>
   </form>
 </div>
