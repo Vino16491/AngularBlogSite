@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 // Angular material import
@@ -57,7 +58,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MatChipsModule,
     HttpClientModule,
     AppRoutingModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule
 
   ],
   providers: [AuthService],

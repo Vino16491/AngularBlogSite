@@ -1,7 +1,7 @@
 <div align="center" style="padding: 100px;">
-  <form class="login-form " onsubmit="">
+  <form class="login-form ">
     <mat-form-field class="login-full-width">
-      <input matInput placeholder="Email">
+      <input matInput placeholder="Email" type="email">
       <mat-error *ngIf="validFormControl.hasError('email') && !validFormControl.hasError('required')">
         Please enter a valid email address
       </mat-error>
@@ -12,7 +12,7 @@
     </mat-form-field>
 
     <mat-form-field class="login-full-width">
-      <input matInput placeholder="Password">
+      <input matInput placeholder="Password" type="password">
       <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
       Please enter a valid email address
     </mat-error> -->
@@ -22,6 +22,6 @@
       </mat-error>
     </mat-form-field>
 
-    <button mat-stroked-button color="primary" routerLink="/blogs" style="float: right" type="submit">Submit</button>
+    <button mat-stroked-button color="primary" style="float: right" type="submit">Submit</button>
   </form>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -12,10 +13,13 @@ export class LoginPageComponent implements OnInit {
     Validators.required,
     Validators.email,
   ]);
-  constructor(private _authservice: AuthService) { }
+  constructor(private _authservice: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
-
+  onSubmit(){
+    alert('Hellow World');
+    this.router.navigate(['blogs']);
+  }
 
 }
