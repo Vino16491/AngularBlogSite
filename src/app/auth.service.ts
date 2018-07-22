@@ -5,14 +5,15 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthService {
-
+  public isUserLoggedIn = false;
   constructor(private http: HttpClient) { }
 
-  getAuthData(){
+  getAuthData() {
     // return this.http.get();
     return [
-      {"userId":"aa@a.com", "password":"pass@123"},
-      {"userId":"example@blog.com", "password":"pass@1234"},
+      { "userId": "aa@a.com", "password": "pass@123" },
+      { "userId": "example@blog.com", "password": "pass@1234" },
     ]
   }
+
 }
