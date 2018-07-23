@@ -1,3 +1,35 @@
-<p>
-  signuppage works!
-</p>
+<div align="center" style="padding: 100px;">
+  <form class="signup-form" #loginForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+    <mat-form-field class="signup-full-width">
+      <input matInput placeholder="Your Name" type="text" [ngModel] name="username">
+      <mat-error *ngIf="validFormControl.hasError('required')">
+        Your Name is<strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="signup-full-width">
+      <input matInput placeholder="Mobile Number" type="tel" name="Mobile Number">
+      <mat-error *ngIf="validFormControl.hasError('required')">
+        password is<strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="signup-full-width">
+      <input matInput placeholder="Email" type="email" [(ngModel)]="userSignUpData.email" name="emailId">
+      <mat-error *ngIf="validFormControl.hasError('email') && !validFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="validFormControl.hasError('required')">
+        Email is
+        <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="signup-full-width">
+      <input matInput placeholder="Password" type="password" [(ngModel)]="userSignUpData.password" name="userPass">
+      <mat-error *ngIf="validFormControl.hasError('required')">
+        password is<strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-stroked-button color="primary" style="float: right" type="submit">Submit</button>
+  </form>
+</div>
