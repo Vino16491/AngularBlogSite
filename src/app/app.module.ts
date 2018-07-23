@@ -32,6 +32,7 @@ import { AuthService } from './auth.service';
 /* Routing Module */
 import { AppRoutingModule } from './app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SignuppageComponent } from './signuppage/signuppage.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     FooterComponent,
     // LoginPageComponent
     routingComponents,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SignuppageComponent
   ],
   imports: [
     BrowserModule,
