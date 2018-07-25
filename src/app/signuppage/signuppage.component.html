@@ -1,15 +1,17 @@
 <div align="center" style="padding: 100px;">
-  <form class="signup-form" #loginForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+  <form class="signup-form" #signupform="ngForm" (ngSubmit)="onSubmit()" novalidate>
     <mat-form-field class="signup-full-width">
-      <input matInput placeholder="Your Name" type="text" [ngModel] name="username">
+      <input matInput placeholder="Your Name" type="text" [(ngModel)]="userSignUpData.username" name="username">
       <mat-error *ngIf="validFormControl.hasError('required')">
-        Your Name is<strong>required</strong>
+        Your Name is
+        <strong>required</strong>
       </mat-error>
     </mat-form-field>
     <mat-form-field class="signup-full-width">
-      <input matInput placeholder="Mobile Number" type="tel" name="Mobile Number">
+      <input matInput placeholder="Mobile Number" type="tel" [ngModel] name="MobileNumber">
       <mat-error *ngIf="validFormControl.hasError('required')">
-        password is<strong>required</strong>
+        password is
+        <strong>required</strong>
       </mat-error>
     </mat-form-field>
     <mat-form-field class="signup-full-width">
@@ -26,7 +28,8 @@
     <mat-form-field class="signup-full-width">
       <input matInput placeholder="Password" type="password" [(ngModel)]="userSignUpData.password" name="userPass">
       <mat-error *ngIf="validFormControl.hasError('required')">
-        password is<strong>required</strong>
+        password is
+        <strong>required</strong>
       </mat-error>
     </mat-form-field>
 

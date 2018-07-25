@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { userModel } from '../models/userModel';
+import { userSignUpModel } from '../models/userModel';
 @Component({
   selector: 'app-signuppage',
   templateUrl: './signuppage.component.html',
@@ -12,13 +12,14 @@ export class SignuppageComponent implements OnInit {
     Validators.required,
     Validators.email,
   ]);
-  userSignUpData = new userModel('', '');
+  userSignUpData = new userSignUpModel('', '', '', null);
   constructor() { }
 
   ngOnInit() {
   }
   onSubmit(){
-    alert('Hello World')
+
+    alert('Hello World ' + JSON.stringify(this.userSignUpData));
   }
 
 }
