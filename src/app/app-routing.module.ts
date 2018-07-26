@@ -10,8 +10,8 @@ const routes: Routes = [
     { path: '', redirectTo: '/blogs', pathMatch: 'full' },
     { path: 'login', component: LoginPageComponent },
     { path: 'blogs', component: BlogsComponent },
-    { path: 'signup', component: SignuppageComponent},
-    {path: 'story', component:AddStoryComponent},
+    { path: 'signup', component: SignuppageComponent },
+    { path: 'story', component: AddStoryComponent },
     { path: "**", component: PageNotFoundComponent }
 ];
 

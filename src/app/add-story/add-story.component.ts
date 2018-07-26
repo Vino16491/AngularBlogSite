@@ -46,7 +46,8 @@ export class AddStoryComponent implements OnInit {
   saveStory() {
     if(this.userStory !== undefined && this.userStory !== null && this.userStory){
       if(this.userStory.length > 50){
-        this.blogService.addUserStory(this.userStory)
+        this.blogService.addUserStory(this.userStory);
+        this.userStory = null;
       }else{
         alert("story should be more than 50 char" + "Your story is only " + this.userStory.length+ ' char')
       }
