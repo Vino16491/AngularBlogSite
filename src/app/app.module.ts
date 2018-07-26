@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { FormsModule } from '@angular/forms';
+ 
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 // Angular material import
@@ -37,6 +37,7 @@ import { AddStoryComponent } from './add-story/add-story.component';
 
 /* textEditor module */
 import { QuillModule } from 'ngx-quill';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +68,9 @@ import { QuillModule } from 'ngx-quill';
     AppRoutingModule,
     MatInputModule,
     FormsModule,
-    QuillModule
+    QuillModule,
+    AngularEditorModule,
+    ReactiveFormsModule 
 
   ],
   providers: [AuthService],
