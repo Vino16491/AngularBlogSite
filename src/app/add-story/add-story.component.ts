@@ -13,7 +13,7 @@ export class AddStoryComponent implements OnInit {
   editorConfig: AngularEditorConfig = {
     editable: true,
     spellcheck: true,
-    height: '25rem',
+    height: '10rem',
     minHeight: '5rem',
     placeholder: 'Enter text here...',
     translate: 'no',
@@ -44,7 +44,15 @@ export class AddStoryComponent implements OnInit {
   }
 
   saveStory() {
-    this.blogService.addUserStory(this.userStory)
+    if(this.userStory !== undefined && this.userStory !== null && this.userStory){
+      if(this.userStory.length > 50){
+        this.blogService.addUserStory(this.userStory)
+      }else{
+        alert("story should be more than 50 char" + "Your story is only " + this.userStory.length+ ' char')
+      }
+    }
+    
+    
   }
 
 }

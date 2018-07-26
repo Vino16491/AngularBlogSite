@@ -1,3 +1,7 @@
 <!-- <div>{{userStory}}</div> -->
-<angular-editor [(ngModel)]="userStory" [config]="editorConfig"></angular-editor>
+<div style="max-height: 100%">
+  <angular-editor [(ngModel)]="userStory" [config]="editorConfig"></angular-editor>
+  <button mat-button color="primary" (click)="saveStory()">Save</button>
+</div>
+
 <!-- <angular-editor [palce]></angular-editor> -->

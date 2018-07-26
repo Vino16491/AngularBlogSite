@@ -16,7 +16,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatInputModule } from '@angular/material/input';
-
+// import {MatSnackBar} from '@angular/material';
 /* Components */
 import { routingComponents } from './app-routing.module';
 // import { LoginPageComponent } from './login-page/login-page.component';
@@ -70,7 +70,8 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     FormsModule,
     QuillModule,
     AngularEditorModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule
+    // MatSnackBar
 
   ],
   providers: [AuthService],
