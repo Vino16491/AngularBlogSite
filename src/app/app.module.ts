@@ -34,6 +34,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SignuppageComponent } from './signuppage/signuppage.component';
 import { AddStoryComponent } from './add-story/add-story.component';
+
+/* textEditor module */
+import { QuillModule } from 'ngx-quill';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,7 +66,8 @@ import { AddStoryComponent } from './add-story/add-story.component';
     HttpClientModule,
     AppRoutingModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    QuillModule
 
   ],
   providers: [AuthService],

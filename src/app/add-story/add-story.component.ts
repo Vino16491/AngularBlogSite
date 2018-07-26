@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {BlogDataService} from '../services/blog-data.service'
+import {BlogDataService} from '../services/blog-data.service';
 @Component({
   selector: 'app-add-story',
   templateUrl: './add-story.component.html',
