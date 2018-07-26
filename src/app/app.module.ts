@@ -33,6 +33,7 @@ import { AuthService } from './auth.service';
 import { AppRoutingModule } from './app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SignuppageComponent } from './signuppage/signuppage.component';
+import { AddStoryComponent } from './add-story/add-story.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,8 @@ import { SignuppageComponent } from './signuppage/signuppage.component';
     // LoginPageComponent
     routingComponents,
     PageNotFoundComponent,
-    SignuppageComponent
+    SignuppageComponent,
+    AddStoryComponent
   ],
   imports: [
     BrowserModule,
