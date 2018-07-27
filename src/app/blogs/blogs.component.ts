@@ -16,11 +16,16 @@ blogs = []
   }
 
   blogsData(){
+
     let storyFromService = this.blogdata.userStory();
-    // alert(storyFromService);
-    if(storyFromService){
+    alert(storyFromService);
+    if(storyFromService != undefined && storyFromService != null){
+      // for(let story in storyFromService){
+      //   this.blogs.push(story);
+        console.log(JSON.stringify(storyFromService));
+      // }
       this.blogs.push(storyFromService);
-      console.log(storyFromService);
+      
     }
   }
 

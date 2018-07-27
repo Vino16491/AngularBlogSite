@@ -12,25 +12,29 @@ export class AddStoryComponent implements OnInit {
   public userStory;
   public userStoryTitle;
   editorConfig: AngularEditorConfig = {
+    defaultFontName:'Roboto',
+    // showToolbar:false,
     editable: true,
     spellcheck: true,
     height: '10rem',
     minHeight: '5rem',
-    placeholder: 'Enter text here...',
+    placeholder: 'Your Story Here...',
     translate: 'no',
     uploadUrl: 'v1/images', // if needed
     customClasses: [ // optional
       {
         name: "quote",
-        class: "quote",
+        class: "storyStyle",
+        tag:"div"
       },
       {
         name: 'redText',
-        class: 'redText'
+        class: 'storyStyle',
+        tag:"div"
       },
       {
         name: "titleText",
-        class: "titleText",
+        class: "storyStyle",
         tag: "h1",
       },
     ]

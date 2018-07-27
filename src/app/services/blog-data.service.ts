@@ -9,11 +9,17 @@ public blogStory = [];
 
 
   addUserStory(blogstory){
-    this.blogStory.push(blogstory);
+
+    this.blogStory = blogstory;
   }
 
   userStory(){
-    return this.blogStory;
+    if(this.blogStory != undefined && this.blogStory != null){
+      return this.blogStory;
+    }else{
+      return false;
+    }
+    
   }
 }
 

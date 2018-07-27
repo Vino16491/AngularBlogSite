@@ -3,9 +3,11 @@
 <div>
     <input type="text" id="title" name="title" placeholder="Title" [(ngModel)]="userStoryTitle">
 </div>
-<div style="max-height: 100%">
+<div style="max-height: 100%" class="storyStyle" >
   <angular-editor [(ngModel)]="userStory" [config]="editorConfig"></angular-editor>
-  <button mat-button color="primary" (click)="saveStory()">Save</button>
+</div>
+<div>
+    <button mat-button color="primary" (click)="saveStory()">Save</button>
 </div>
 
 <!-- <angular-editor [palce]></angular-editor> -->

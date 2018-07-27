@@ -12,3 +12,11 @@ input[type=text] {
 input:focus{
     outline: none;
 }
+
+.storyStyle{
+    font-family: 'Roboto';
+    font-size: 18px;
+    color: darkslategrey;
+    /* border: none; Does'nt work */
+    /* outline: none; Does'nt work */
+}
