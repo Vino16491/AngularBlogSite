@@ -11,8 +11,17 @@ blogs = []
   constructor(private _authservice: AuthService, public blogdata: BlogDataService) { }
 
   ngOnInit() {
-    this.blogs.push(this.blogdata.blogStory);
-    console.log(this.blogdata.blogStory);
+    this.blogsData();
+    
+  }
+
+  blogsData(){
+    let storyFromService = this.blogdata.userStory();
+    // alert(storyFromService);
+    if(storyFromService){
+      this.blogs.push(storyFromService);
+      console.log(storyFromService);
+    }
   }
 
 }

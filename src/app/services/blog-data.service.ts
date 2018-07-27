@@ -11,6 +11,10 @@ public blogStory = [];
   addUserStory(blogstory){
     this.blogStory.push(blogstory);
   }
+
+  userStory(){
+    return this.blogStory;
+  }
 }
 
 
