@@ -22,7 +22,7 @@ blogs = []
     
     if(storyFromService){
       // for(let story in storyFromService){
-        this.blogs.push(storyFromService.title);
+        this.blogs.push(storyFromService);
         console.log(JSON.stringify(storyFromService));
       // }
       // this.blogs.push(storyFromService);
