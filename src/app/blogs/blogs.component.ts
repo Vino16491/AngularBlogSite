@@ -18,7 +18,7 @@ blogs = []
   blogsData(){
 
     let storyFromService = this.blogdata.userStory();
-    alert(storyFromService);
+    // alert(storyFromService);
     if(storyFromService != undefined && storyFromService != null){
       // for(let story in storyFromService){
       //   this.blogs.push(story);
