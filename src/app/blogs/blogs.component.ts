@@ -16,17 +16,10 @@ export class BlogsComponent implements OnInit {
   }
 
   blogsData() {
-
     let storyFromService = this.blogdata.userStory();
-    // alert(storyFromService);
-
     if (storyFromService) {
-      // for(let story in storyFromService){
       this.blogs.push(storyFromService);
       console.log(JSON.stringify(storyFromService));
-      // }
-      // this.blogs.push(storyFromService);
-
     } else {
       console.log(storyFromService + 'no data found')
     }
