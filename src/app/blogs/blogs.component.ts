@@ -19,13 +19,16 @@ blogs = []
 
     let storyFromService = this.blogdata.userStory();
     // alert(storyFromService);
-    if(storyFromService != undefined && storyFromService != null){
+    
+    if(storyFromService){
       // for(let story in storyFromService){
-      //   this.blogs.push(story);
+        this.blogs.push(storyFromService.title);
         console.log(JSON.stringify(storyFromService));
       // }
-      this.blogs.push(storyFromService);
+      // this.blogs.push(storyFromService);
       
+    }else{
+      console.log(storyFromService + 'no data found')
     }
   }
 

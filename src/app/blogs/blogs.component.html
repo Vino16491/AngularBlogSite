@@ -63,17 +63,18 @@
       <p>Beer is real drink</p>
     </div>
   </div>
-  <ng-container *ngIf="blogs.length > 0">
+  <ng-container *ngIf="blogs.length > 0">{{blogs | json}}
     <div class="card grid-item" *ngFor="let blog of blogs, i as index">
       <!-- <img src="img_avatar2.png" alt="Avatar" style="width:100%"> -->
       <div class="container">
         <h4>
           <!-- {{blogs | json}} -->
-          <b>{{blog.title}}</b>
+          <b>{{blog}}</b>
         </h4>
-        <!-- <p>Beer is real drink</p> -->
+
       </div>
     </div>
+
   </ng-container>
 
 </div>
