@@ -1,19 +1,25 @@
 <mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <!-- <span>Third Line</span> -->
-    <span class="navBar-spacer"></span>
-    <mat-chip-list class="navBar-spacer-chips">
+  <mat-toolbar-row class="navBar-toolbar">
+    <div class="navBar-spacer-chips">
+      <mat-chip-list >
         <mat-chip routerLink="/blogs">techie</mat-chip>
         <mat-chip>Spicey</mat-chip>
         <mat-chip color="accent" selected>Educational</mat-chip>
         <mat-chip color="accent" selected>feelings</mat-chip>
       </mat-chip-list>
-    <button mat-button [matMenuTriggerFor]="personMenu">
-      <mat-icon class="navBar-icon">person</mat-icon>
-    </button>
-    <button mat-button [matMenuTriggerFor]="notifyMenu">
-      <mat-icon class="navBar-icon">notifications</mat-icon>
-    </button>
+    </div>
+    <div>
+
+    </div>
+    <div>
+      <button mat-button [matMenuTriggerFor]="personMenu">
+        <mat-icon class="navBar-icon">person</mat-icon>
+      </button>
+      <button mat-button [matMenuTriggerFor]="notifyMenu">
+        <mat-icon class="navBar-icon">notifications</mat-icon>
+      </button>
+    </div>
+    
   </mat-toolbar-row>
 </mat-toolbar>
 

@@ -2,8 +2,8 @@
   padding: 0px;
 }
 
-.navBar-spacer {
-  flex: auto auto 1;
+.navBar-toolbar {
+  display:flex;
 }
 .navBar-spacer-chips{
   /* margin-left: auto; */
