@@ -16,6 +16,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatInputModule } from '@angular/material/input';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 // import {MatSnackBar} from '@angular/material';
 /* Components */
 import { routingComponents } from './app-routing.module';
@@ -55,6 +56,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     BrowserModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatAutocompleteModule,
     MatMenuModule,
     BrowserAnimationsModule,
     MatIconModule,
