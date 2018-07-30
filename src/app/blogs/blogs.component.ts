@@ -7,7 +7,30 @@ import { BlogDataService } from '../services/blog-data.service'
   styleUrls: ['./blogs.component.css']
 })
 export class BlogsComponent implements OnInit {
-  blogs = []
+  blogs = [{
+    title: 'Hero 1',
+    story: ''
+  },
+  {
+    title: 'Hero 2',
+    story: ''
+  },
+  {
+    title: 'Hero 3',
+    story: ''
+  },
+  {
+    title: 'Hero 4',
+    story: ''
+  },
+  {
+    title: 'Hero 5',
+    story: ''
+  },
+  {
+    title: 'Hero 6',
+    story: ''
+  }]
   constructor(private _authservice: AuthService, public blogdata: BlogDataService) { }
 
   ngOnInit() {

@@ -1,39 +1,80 @@
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    width: auto;
-    border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  width: 100%;
 }
 
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 img {
-    border-radius: 5px 5px 0 0;
-}
-
-.container {
-    padding: 2px 32px;
-    
+  border-radius: 5px 5px 0 0;
 }
 
 /* css for grid layout */
-.grid-container {
-    display: grid;
-    grid-gap: 15px;
-    grid-template-columns: auto auto auto;
-    /* grid-template-rows: auto auto auto; */
-    background-color:whitesmoke;
-    padding: 30px;
-    overflow:auto;
+
+.flex-container-row {
+  display: -ms-flexbox;
+  /* IE10 */
+  -ms-flex-wrap: wrap;
+  /* IE10 */
+  display: flex;
+  flex-flow: row wrap;
+  /* background-color: whitesmoke; */
+  padding: 0 10px;
+  box-sizing: border-box;
+  /* flex-flow: row wrap; */
+}
+
+.flex-column-item {
+  text-align: center;
+  font-family: Roboto;
+  -ms-flex: 25%;
+  /* IE10 */
+  background-color: rgba(255, 255, 255, 0.8);
+  /* border: 1px solid rgba(0, 0, 0, 0.8); */
+  padding: 0 10px;
+  flex: 25%;
+  /* 100% / 4 - horizontal-border - horizontal-padding - left-margin * (4 - 1) / 4 */
+  max-width: calc(100% / 4 - 0px - 10px - 5px * (4 - 1) / 4);
+  margin-top: 8px;
+  vertical-align: middle;
+  min-width: 120px;
+  min-height: 75px;
+  margin-bottom: 2px;
+  margin-left: 5px;
+}
+
+.paginationBlogs {
+  padding-bottom: 75px;
+  position: center;
+}
+
+/* Responsive layout */
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+
+@media screen and (max-width: 800px) {
+  .flex-column-item {
+    -ms-flex: 50%;
+    flex: 49%;
+    max-width: 49%;
+    margin-left: 0.25%;
   }
-  .grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    /* border: 1px solid rgba(0, 0, 0, 0.8); */
-    padding: 20px;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 600px) {
+  .flex-column-item {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+    margin-top: 8px;
+    vertical-align: middle;
+    min-width: 120px;
+    min-height: 75px;
   }
-  .paginationBlogs{
-    padding-bottom:75px;
-    position: center;
-  }
+}
