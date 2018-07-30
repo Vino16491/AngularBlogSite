@@ -9,3 +9,18 @@
   /* margin-left: auto; */
   margin-right: auto;
 }
+.navBar-menu{
+  display: none;
+}
+/* Responsive queries */
+@media screen and (max-width:800px){
+  .navBar-spacer-chips{
+    display: none;
+  }
+  .navBar-menu{
+    display: block;
+    padding: 0px;
+    color:whitesmoke;
+    margin-right: auto;
+  }
+}

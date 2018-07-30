@@ -1,5 +1,6 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row class="navBar-toolbar">
+      <button mat-icon-button class="navBar-menu"><mat-icon>menu</mat-icon></button>
     <div class="navBar-spacer-chips">
       <mat-chip-list >
         <mat-chip routerLink="/blogs">techie</mat-chip>
@@ -9,13 +10,14 @@
       </mat-chip-list>
     </div>
     <div>
+      
 
     </div>
     <div>
-      <button mat-button [matMenuTriggerFor]="personMenu">
+      <button mat-icon-button [matMenuTriggerFor]="personMenu">
         <mat-icon class="navBar-icon">person</mat-icon>
       </button>
-      <button mat-button [matMenuTriggerFor]="notifyMenu">
+      <button mat-icon-button [matMenuTriggerFor]="notifyMenu">
         <mat-icon class="navBar-icon">notifications</mat-icon>
       </button>
     </div>
@@ -33,3 +35,4 @@
 <mat-menu #notifyMenu="matMenu">
   <p>Hi There is a message for you<p>
 </mat-menu>
+
