@@ -13,13 +13,14 @@ export class SignuppageComponent implements OnInit {
     Validators.email,
   ]);
   userSignUpData = new userSignUpModel('', '', '', null);
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
   onSubmit(){
 
-    alert('Hello World ' + JSON.stringify(this.userSignUpData));
+    // alert('Hello World ' + JSON.stringify(this.userSignUpData));
+    this.router.navigate(['blogs']);
   }
 
 }

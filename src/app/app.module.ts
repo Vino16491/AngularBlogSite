@@ -39,6 +39,7 @@ import { AddStoryComponent } from './add-story/add-story.component';
 /* textEditor module */
 import { QuillModule } from 'ngx-quill';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { WelcomeComponent } from './welcome/welcome.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +51,8 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     routingComponents,
     PageNotFoundComponent,
     SignuppageComponent,
-    AddStoryComponent
+    AddStoryComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,

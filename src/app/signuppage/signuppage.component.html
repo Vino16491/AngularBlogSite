@@ -8,9 +8,9 @@
       </mat-error>
     </mat-form-field>
     <mat-form-field class="signup-full-width">
-      <input matInput placeholder="Mobile Number" type="tel" [ngModel] name="MobileNumber">
+      <input matInput placeholder="Mobile Number" type="number" [ngModel]="userSignUpData.mobileNumber" name="MobileNumber">
       <mat-error *ngIf="validFormControl.hasError('required')">
-        password is
+        Mobile Number is
         <strong>required</strong>
       </mat-error>
     </mat-form-field>

@@ -11,6 +11,5 @@ export class userSignUpModel {
         public password: string,
         public username: string,
         public mobilenumber: Number
-
     ) { }
 }
