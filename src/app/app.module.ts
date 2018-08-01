@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
- 
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -32,6 +32,7 @@ import { AuthService } from './auth.service';
 
 /* Routing Module */
 import { AppRoutingModule } from './app-routing.module';
+
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SignuppageComponent } from './signuppage/signuppage.component';
 import { AddStoryComponent } from './add-story/add-story.component';
@@ -74,7 +75,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
     FormsModule,
     QuillModule,
     AngularEditorModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FlexLayoutModule
     // MatSnackBar
 
   ],
