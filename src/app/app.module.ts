@@ -5,20 +5,7 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 // Angular material import
-import { MatButtonModule } from '@angular/material';
-import { MatMenuModule } from '@angular/material/menu';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatIconModule } from '@angular/material/icon'
-import { MatCardModule } from '@angular/material/card';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatChipsModule } from '@angular/material/chips';
-import { MatInputModule } from '@angular/material/input';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-// import {MatSnackBar} from '@angular/material';
-/* Components */
+import {MaterialModule} from './material.module'
 import { routingComponents } from './app-routing.module';
 // import { LoginPageComponent } from './login-page/login-page.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -57,27 +44,14 @@ import { WelcomeComponent } from './welcome/welcome.component';
   ],
   imports: [
     BrowserModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    MatAutocompleteModule,
-    MatMenuModule,
-    BrowserAnimationsModule,
-    MatIconModule,
-    MatCardModule,
-    MatGridListModule,
-    MatCheckboxModule,
-    MatToolbarModule,
-    MatPaginatorModule,
-    MatChipsModule,
+    MaterialModule,
     HttpClientModule,
     AppRoutingModule,
-    MatInputModule,
     FormsModule,
     QuillModule,
     AngularEditorModule,
     ReactiveFormsModule,
     FlexLayoutModule
-    // MatSnackBar
 
   ],
   providers: [AuthService],
