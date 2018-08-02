@@ -28,6 +28,7 @@ import { AddStoryComponent } from './add-story/add-story.component';
 import { QuillModule } from 'ngx-quill';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { SidenavComponent } from './navbar/sidenav/sidenav.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
     PageNotFoundComponent,
     SignuppageComponent,
     AddStoryComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,

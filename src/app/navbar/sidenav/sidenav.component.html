@@ -1,0 +1,14 @@
+<mat-nav-list>
+  <a mat-list-item (click)="onClose()">
+    <mat-icon>person</mat-icon>
+    <span class=".nav-caption">Profile</span>
+  </a>
+  <a mat-list-item (click)="onClose()">
+    <mat-icon>notifications</mat-icon>
+    <span class=".nav-caption">Message</span>
+  </a>
+
+  <mat-chip-list *ngFor="let chip of chips, i as index" aria-orientation="vertical">
+    <mat-chip (click)="onChipSelect(chip, i)">{{chip}}</mat-chip>
+  </mat-chip-list>
+</mat-nav-list>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -7,21 +7,18 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  showSideNavMenu;
+
+  @Output() sidenavToggle = new EventEmitter<void>()
+  chips: string[] = [
+    'Emotions', 'Feelings', 'Technology', 'programming'
+  ];
   constructor(public _authservice: AuthService) { }
+
 
   ngOnInit() {
 
   }
-
-  openSideNav(){
-    if(this.showSideNavMenu === '0px'){
-      this.showSideNavMenu = '250 px';
-    }
-  }
-  closeSideNav(){
-    
-      this.showSideNavMenu = '0 px';
-    
+  onToggleSideNav() {
+    this.sidenavToggle.emit()
   }
 }

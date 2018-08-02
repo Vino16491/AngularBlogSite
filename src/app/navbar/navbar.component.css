@@ -1,26 +1,14 @@
-.navBar-icon {
-  padding: 0px;
+a{
+  text-decoration: none;
+  color: white;
+}
+a:hover, a:active{
+  color: lightgray;
+}
+.navigationIconButton{
+  flex: 1 1 auto;
 }
 
-.navBar-toolbar {
-  display:flex;
-}
-.navBar-spacer-chips{
-  /* margin-left: auto; */
-  margin-right: auto;
-}
-.navBar-menu{
-  display: none;
-}
-/* Responsive queries */
-@media screen and (max-width:800px){
-  .navBar-spacer-chips{
-    display: none;
-  }
-  .navBar-menu{
-    display: block;
-    padding: 0px;
-    color:whitesmoke;
-    margin-right: auto;
-  }
+.icon-button{
+  padding: 0 14px;
 }

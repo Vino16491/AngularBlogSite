@@ -1,28 +1,31 @@
 <mat-toolbar color="primary">
-  <mat-toolbar-row class="navBar-toolbar">
-      <button mat-icon-button class="navBar-menu"><mat-icon>menu</mat-icon></button>
-    <div class="navBar-spacer-chips">
-      <mat-chip-list >
-        <mat-chip routerLink="/blogs">techie</mat-chip>
-        <mat-chip>Spicey</mat-chip>
-        <mat-chip color="accent" selected>Educational</mat-chip>
-        <mat-chip color="accent" selected>feelings</mat-chip>
-      </mat-chip-list>
-    </div>
-    <div>
-      
 
-    </div>
-    <div>
-      <button mat-icon-button [matMenuTriggerFor]="personMenu">
-        <mat-icon class="navBar-icon">person</mat-icon>
-      </button>
-      <button mat-icon-button [matMenuTriggerFor]="notifyMenu">
-        <mat-icon class="navBar-icon">notifications</mat-icon>
-      </button>
-    </div>
-    
-  </mat-toolbar-row>
+  <div fxHide.gt-xs>
+    <button mat-icon-button (click)="onToggleSideNav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+  <div>
+    <a routerLink="/">Logo</a>
+  </div>
+
+  <div fxflex fxLayoutAlign="flex-start" fxHide.xs>
+    <mat-chip-list *ngFor="let chip of chips, i as index" fxLayout fxLayoutGap="10px">
+      <mat-chip routerLink="/blogs">{{chip}}</mat-chip>
+    </mat-chip-list>
+  </div>
+  
+  <div fxflex fxLayout fxLayoutAlign="flex-end" fxHide.xs class="navigationIconButton">
+    <button mat-icon-button [matMenuTriggerFor]="personMenu" class="icon-button">
+      <mat-icon>person</mat-icon>
+    </button>
+    <button mat-icon-button [matMenuTriggerFor]="notifyMenu" class="icon-button">
+      <mat-icon>notifications</mat-icon>
+    </button>
+  </div>
+
+
 </mat-toolbar>
 
 <mat-menu #personMenu="matMenu">
@@ -33,6 +36,6 @@
 </mat-menu>
 
 <mat-menu #notifyMenu="matMenu">
-  <p>Hi There is a message for you<p>
+  <p>Hi There is a message for you
+    <p>
 </mat-menu>
-
