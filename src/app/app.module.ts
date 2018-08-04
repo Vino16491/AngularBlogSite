@@ -15,7 +15,7 @@ import { FooterComponent } from './footer/footer.component';
 
 /* Services Import */
 //Authservice import
-import { AuthService } from './auth.service';
+import { AuthService } from "./auth/auth.service";
 
 /* Routing Module */
 import { AppRoutingModule } from './app-routing.module';

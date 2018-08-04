@@ -29,10 +29,10 @@
 </mat-toolbar>
 
 <mat-menu #personMenu="matMenu">
-  <a *ngIf="!_authservice.isUserLoggedIn" routerLink="/login" mat-menu-item routerLinkActive="active">Login</a>
-  <a *ngIf="!_authservice.isUserLoggedIn" routerLink="/signup" mat-menu-item routerLinkActive="active">Sign Up</a>
+  <a routerLink="/login" mat-menu-item routerLinkActive="active">Login</a>
+  <a routerLink="/signup" mat-menu-item routerLinkActive="active">Sign Up</a>
   <!-- <button mat-menu-item>Sign Up</button> -->
-  <button *ngIf="_authservice.isUserLoggedIn" routerLink="/story" mat-menu-item>Your Story</button>
+  <button routerLink="/story" mat-menu-item>Your Story</button>
 </mat-menu>
 
 <mat-menu #notifyMenu="matMenu">

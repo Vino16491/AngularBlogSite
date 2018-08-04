@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { AuthService } from "../auth.service";
+import { AuthService } from "../auth/auth.service";
 import { FormControl, Validators, FormGroup } from "@angular/forms";
 import { Router } from "@angular/router";
 import { userModel } from "../models/userModel";
@@ -19,17 +19,6 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit() {}
   onSubmit() {
-    let user = this._authservice.getAuthData();
-
-    for (let i = 0; i < user.length; i++) {
-      if (user[i].userId == this.userLoginData.email) {
-        if (user[i].password == this.userLoginData.password) {
-          this._authservice.isUserLoggedIn = true;
-          this.router.navigate(["blogs"]);
-        } else {
-          alert("wrong user id and password");
-        }
-      }
-    }
+    
   }
 }
