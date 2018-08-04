@@ -19,6 +19,10 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit() {}
   onSubmit() {
-    
+
+    this._authservice.login({
+      email: this.userLoginData.email,
+      password: this.userLoginData.password
+    });
   }
 }
