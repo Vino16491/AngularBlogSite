@@ -1,42 +1,40 @@
-import {Subject} from 'rxjs'
-import {User} from './user.model';
-import {AuthData} from './auth-data.model';
+import { Subject } from "rxjs";
+import { User } from "./user.model";
+import { AuthData } from "./auth-data.model";
 
+export class AuthService {
+  authChange = new Subject<boolean>();
+  private user: User;
 
-export class AuthService{
-    authChange = new Subject<boolean>();
-    private user: User;
+  registeredUser(authData: AuthData) {
+    this.user = {
+      email: authData.email,
+      userId: Math.round(Math.random() * 10000).toString()
+    };
 
+    this.authChange.next(true);
+  }
 
-    registeredUser(authData: AuthData){
-        this.user = {
-            email: authData.email,
-            userId: Math.round(Math.random() * 10000).toString()
-        };
+  login(authData: AuthData) {
+    this.user = {
+      email: authData.email,
+      userId: Math.round(Math.random() * 10000).toString()
+    };
 
-        this.authChange.next(true);
-    }
+    this.authChange.next(true);
+  }
 
-    login(authData: AuthData){
-        this.user = {
-            email: authData.email,
-            userId: Math.round(Math.random() * 10000).toString()
-        };
+  logout() {
+    this.user = null;
+    this.authChange.next(false);
+  }
 
-        this.authChange.next(true);
+  getUser() {
+    return { ...this.user };
+  }
 
-    }
-
-    logout(){
-        this.user = null;
-        this.authChange.next(false);
-    }
-
-    getUser(){
-        return {...this.user};
-    }
-
-    isAuth(){
-        return this.user != null;
-    }
+  isAuth() {
+    console.log(this.user != null);
+    return this.user != null;
+  }
 }

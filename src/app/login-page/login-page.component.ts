@@ -24,5 +24,9 @@ export class LoginPageComponent implements OnInit {
       email: this.userLoginData.email,
       password: this.userLoginData.password
     });
+
+    if(this._authservice.isAuth){
+      this.router.navigate(['/blogs']);
+    }
   }
 }

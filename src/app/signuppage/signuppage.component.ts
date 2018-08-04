@@ -22,5 +22,11 @@ export class SignuppageComponent implements OnInit {
       email: this.userSignUpData.email,
       password: this.userSignUpData.password
     });
+
+    if (this.authService.isAuth) {
+      this.router.navigate(["/blogs"]);
+    } else {
+      this.router.navigate(["/login"]);
+    }
   }
 }
