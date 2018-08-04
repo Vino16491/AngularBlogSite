@@ -1,24 +1,27 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { AuthService } from '../auth/auth.service';
-
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { AuthService } from "../auth/auth.service";
+import { Subscription } from "rxjs";
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: "app-navbar",
+  templateUrl: "./navbar.component.html",
+  styleUrls: ["./navbar.component.css"]
 })
 export class NavbarComponent implements OnInit {
+  @Output() sidenavToggle = new EventEmitter<void>();
+  chips: string[] = ["Emotions", "Feelings", "Technology", "programming"];
+  authSubscription: Subscription;
+  isAuth = false;
 
-  @Output() sidenavToggle = new EventEmitter<void>()
-  chips: string[] = [
-    'Emotions', 'Feelings', 'Technology', 'programming'
-  ];
-  constructor(public _authservice: AuthService) { }
-
+  constructor(public _authservice: AuthService) {}
 
   ngOnInit() {
-
+    this.authSubscription = this._authservice.authChange.subscribe(
+      authStatus => {
+        this.isAuth = authStatus;
+      }
+    );
   }
   onToggleSideNav() {
-    this.sidenavToggle.emit()
+    this.sidenavToggle.emit();
   }
 }
