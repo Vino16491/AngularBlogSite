@@ -32,7 +32,7 @@
   <a *ngIf="!isAuth" routerLink="/login" mat-menu-item routerLinkActive="active">Login</a>
   <a *ngIf="!isAuth" routerLink="/signup" mat-menu-item routerLinkActive="active">Sign Up</a>
   <!-- <button mat-menu-item>Sign Up</button> -->
-  <button *ngIf="!isAuth" routerLink="/story" mat-menu-item>Your Story</button>
+  <button *ngIf="isAuth" routerLink="/story" mat-menu-item>Your Story</button>
 </mat-menu>
 
 <mat-menu #notifyMenu="matMenu">
