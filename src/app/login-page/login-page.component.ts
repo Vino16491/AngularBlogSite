@@ -25,7 +25,7 @@ export class LoginPageComponent implements OnInit {
       password: this.userLoginData.password
     });
 
-    if(this._authservice.isAuth){
+    if(this._authservice.isAuth()){
       this.router.navigate(['/blogs']);
     }
   }
