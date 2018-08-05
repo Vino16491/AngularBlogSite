@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter, OnDestroy } from "@angular/core";
 import { AuthService } from "../auth/auth.service";
 import { Subscription } from "rxjs";
 @Component({
@@ -6,7 +6,7 @@ import { Subscription } from "rxjs";
   templateUrl: "./navbar.component.html",
   styleUrls: ["./navbar.component.css"]
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
   @Output() sidenavToggle = new EventEmitter<void>();
   chips: string[] = ["Emotions", "Feelings", "Technology", "programming"];
   authSubscription: Subscription;
@@ -23,5 +23,9 @@ export class NavbarComponent implements OnInit {
   }
   onToggleSideNav() {
     this.sidenavToggle.emit();
+  }
+
+  ngOnDestroy() {
+    this.authSubscription.unsubscribe();
   }
 }
