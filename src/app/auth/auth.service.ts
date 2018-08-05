@@ -1,11 +1,11 @@
 import { Subject } from "rxjs";
 import { User } from "./user.model";
 import { AuthData } from "./auth-data.model";
-
+import { Router } from "@angular/router";
 export class AuthService {
   authChange = new Subject<boolean>();
   private user: User;
-
+  constructor(private router: Router) {}
   registeredUser(authData: AuthData) {
     this.user = {
       email: authData.email,
@@ -13,6 +13,7 @@ export class AuthService {
     };
 
     this.authChange.next(true);
+    this.authSuccessfully();
   }
 
   login(authData: AuthData) {
@@ -22,11 +23,13 @@ export class AuthService {
     };
 
     this.authChange.next(true);
+    this.authSuccessfully();
   }
 
   logout() {
     this.user = null;
     this.authChange.next(false);
+    this.router.navigate(["/login"]);
   }
 
   getUser() {
@@ -35,5 +38,8 @@ export class AuthService {
 
   isAuth() {
     return this.user != null;
+  }
+  private authSuccessfully() {
+    this.router.navigate(["/blogs"]);
   }
 }
