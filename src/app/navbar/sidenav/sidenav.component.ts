@@ -1,26 +1,31 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 
+import { Subscription } from "rxjs";
+import { AuthService } from "../../auth/auth.service";
 @Component({
-  selector: 'app-sidenav',
-  templateUrl: './sidenav.component.html',
-  styleUrls: ['./sidenav.component.css']
+  selector: "app-sidenav",
+  templateUrl: "./sidenav.component.html",
+  styleUrls: ["./sidenav.component.css"]
 })
 export class SidenavComponent implements OnInit {
-
   @Output() closeSideNav = new EventEmitter<void>();
-
-  chips: string[] = [
-    'Emotions', 'Feelings', 'Technology', 'programming'
-  ];
-  constructor() { }
+  authSubscription: Subscription;
+  isAuth = false;
+  chips: string[] = ["Emotions", "Feelings", "Technology", "programming"];
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
+    this.authSubscription = this.authService.authChange.subscribe(
+      authStatus => {
+        this.isAuth = authStatus;
+      }
+    );
   }
   onChipSelect(chip, index) {
-    console.log(chip + ' ' + index);
+    console.log(chip + " " + index);
     this.closeSideNav.emit();
   }
-  onClose(){
+  onClose() {
     this.closeSideNav.emit();
   }
 }

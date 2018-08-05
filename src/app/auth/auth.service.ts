@@ -34,18 +34,6 @@ export class AuthService {
   }
 
   isAuth() {
-    console.log(JSON.stringify(this.user));
-    console.log(this.user.email != null && this.user.email != "");
-    console.log(
-      this.user.userId != null &&
-        (this.user.email != null && this.user.email != "")
-    );
-    if (
-      this.user.userId != null &&
-      (this.user.email != null && this.user.email != "")
-    ) {
-      return true;
-    }
-    return false;
+    return this.user != null;
   }
 }
