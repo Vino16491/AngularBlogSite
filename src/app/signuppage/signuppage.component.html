@@ -1,35 +1,30 @@
 <div align="center" style="padding: 100px;">
-  <form class="signup-form" #signupform="ngForm" (ngSubmit)="onSubmit()" novalidate>
+  <form class="signup-form" #signupform="ngForm" (ngSubmit)="onSubmit(signupform)" novalidate>
     <mat-form-field class="signup-full-width">
-      <input matInput placeholder="Your Name" type="text" [(ngModel)]="userSignUpData.username" name="username">
-      <mat-error *ngIf="validFormControl.hasError('required')">
+      <input matInput placeholder="Your Name" type="text" ngModel name="username" #username="ngModel">
+      <mat-error *ngIf="username.hasError('required')">
         Your Name is
         <strong>required</strong>
       </mat-error>
     </mat-form-field>
     <mat-form-field class="signup-full-width">
-      <input matInput placeholder="Mobile Number" type="number" [ngModel]="userSignUpData.mobileNumber" name="MobileNumber">
-      <mat-error *ngIf="validFormControl.hasError('required')">
+      <input matInput placeholder="Mobile Number" type="number" ngModel name="mobileNumber" #mobileNumber="ngModel">
+      <mat-error *ngIf="mobileNumber.hasError('required')">
         Mobile Number is
         <strong>required</strong>
       </mat-error>
     </mat-form-field>
     <mat-form-field class="signup-full-width">
-      <input matInput placeholder="Email" type="email" [(ngModel)]="userSignUpData.email" name="emailId">
-      <mat-error *ngIf="validFormControl.hasError('email') && !validFormControl.hasError('required')">
+      <input matInput placeholder="Email" type="email" ngModel name="emailId" #emailId="ngModel">
+      <mat-error *ngIf="emailId.hasError('required')">
         Please enter a valid email address
-      </mat-error>
-      <mat-error *ngIf="validFormControl.hasError('required')">
-        Email is
-        <strong>required</strong>
       </mat-error>
     </mat-form-field>
 
     <mat-form-field class="signup-full-width">
-      <input matInput placeholder="Password" type="password" [(ngModel)]="userSignUpData.password" name="userPass">
-      <mat-error *ngIf="validFormControl.hasError('required')">
-        password is
-        <strong>required</strong>
+      <input matInput placeholder="Password" type="password" ngModel name="userPass" #userPass="ngModel">
+      <mat-error *ngIf="userPass.hasError('required')">
+        password is required
       </mat-error>
     </mat-form-field>
 

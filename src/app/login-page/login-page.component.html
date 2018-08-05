@@ -1,23 +1,14 @@
 <div align="center" style="padding: 100px;">
-  <form class="login-form" #loginForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
     <mat-form-field class="login-full-width">
-      <input matInput placeholder="Email" type="email" [(ngModel)]="userLoginData.email" name="emailId">
-      <mat-error *ngIf="validFormControl.hasError('email') && !validFormControl.hasError('required')">
-        Please enter a valid email address
-      </mat-error>
-      <mat-error *ngIf="validFormControl.hasError('required')">
-        Email is
-        <strong>required</strong>
-      </mat-error>
+      <input matInput placeholder="Email" type="email" formControlName="emailId">
+      <mat-error>Email is required</mat-error>
     </mat-form-field>
 
     <mat-form-field class="login-full-width">
-      <input matInput placeholder="Password" type="password" [(ngModel)]="userLoginData.password" name="userPass">
-      <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-      Please enter a valid email address
-    </mat-error> -->
-      <mat-error *ngIf="validFormControl.hasError('required')">
-        password is<strong>required</strong>
+      <input matInput placeholder="Password" type="password" formControlName="userPass">
+      <mat-error>password is
+        <strong>required</strong>
       </mat-error>
     </mat-form-field>
 
