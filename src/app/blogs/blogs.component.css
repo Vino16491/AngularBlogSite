@@ -24,9 +24,9 @@ img {
   display: flex;
   flex-flow: row wrap;
   /* background-color: whitesmoke; */
-  padding: 0 10px;
   box-sizing: border-box;
   /* flex-flow: row wrap; */
+  padding-left: 10px; 
 }
 
 .flex-column-item {
@@ -36,7 +36,6 @@ img {
   /* IE10 */
   background-color: rgba(255, 255, 255, 0.8);
   /* border: 1px solid rgba(0, 0, 0, 0.8); */
-  padding: 0 10px;
   flex: 25%;
   /* 100% / 4 - horizontal-border - horizontal-padding - left-margin * (4 - 1) / 4 */
   max-width: calc(100% / 4 - 0px - 10px - 8px * (4 - 1) / 4);
