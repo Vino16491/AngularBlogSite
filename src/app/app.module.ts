@@ -29,7 +29,7 @@ import { QuillModule } from "ngx-quill";
 import { AngularEditorModule } from "@kolkov/angular-editor";
 import { WelcomeComponent } from "./welcome/welcome.component";
 import { SidenavComponent } from "./navbar/sidenav/sidenav.component";
-import { dbConnectService } from "../db-connect.service";
+// import { dbConnectService } from "../db-connect.service";
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +56,7 @@ import { dbConnectService } from "../db-connect.service";
     ReactiveFormsModule,
     FlexLayoutModule
   ],
-  providers: [AuthService, dbConnectService],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
