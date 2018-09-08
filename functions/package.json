@@ -11,6 +11,8 @@
   },
   "main": "lib/index.js",
   "dependencies": {
+    "@types/bcryptjs": "^2.4.1",
+    "bcryptjs": "^2.4.3",
     "firebase-admin": "~6.0.0",
     "firebase-functions": "^2.0.3"
   },
