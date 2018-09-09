@@ -7,12 +7,13 @@ import express = require("express");
 import bodyParser = require("body-parser");
 
 /* dbconnect */
-import { dbConnect, dbConnectLocal } from "./dbconnect";
+import { dbConnect, dbConnectLocal } from "./dbconnectURI.const";
 import mongoose = require("mongoose");
 const blog = require("./dbconnect");
+const db = dbConnect
 mongoose.Promise = global.Promise;
 mongoose.connect(
-  dbConnect,
+  db,
   { useNewUrlParser: true },
   err => {
     if (err) {
@@ -61,7 +62,7 @@ app.post("/addstory", (req, res) => {
 
   newStory.save((err, insertStory) => {
     if (err) {
-      return res.status(500).json({ message: err });
+      return res.status(500).json({ message: err, reqTitle:req.body.title });
     }
 
     return res
