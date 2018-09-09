@@ -7,19 +7,20 @@ import express = require("express");
 import bodyParser = require("body-parser");
 
 /* dbconnect */
-import { dbConnect, dbConnectLocal } from "./dbconnectURI.const";
+import { dbConnect } from "./dbconnectURI.const";
 import mongoose = require("mongoose");
 const blog = require("./dbconnect");
-const db = dbConnect
+const db = dbConnect;
 mongoose.Promise = global.Promise;
 mongoose.connect(
   db,
   { useNewUrlParser: true },
   err => {
     if (err) {
-      return console.log("err in connection " + err);
+      console.log("err in connection " + err);
+    } else {
+      console.log("db connected successfuly");
     }
-    return console.log("db connected successfuly");
   }
 );
 
@@ -55,14 +56,14 @@ app.get("/blog", (req, res) => {
 
 /** Add a new story  */
 app.post("/addstory", (req, res) => {
-  let newStory = new blog();
+  const newStory = new blog();
   newStory.title = req.body.title;
   newStory.story = req.body.title;
   newStory.imageUrl = req.body.imageUrl;
 
   newStory.save((err, insertStory) => {
     if (err) {
-      return res.status(500).json({ message: err, reqTitle:req.body.title });
+      return res.status(500).json({ message: err, reqTitle: req.body.title });
     }
 
     return res
@@ -91,7 +92,7 @@ app.put("/updateblog/:id", (req, res) => {
       }
       return res
         .status(202)
-        .json({ message: "update blog success", blog:  updateBlog._id });
+        .json({ message: "update blog success", blog: updateBlog._id });
     }
   );
 });
