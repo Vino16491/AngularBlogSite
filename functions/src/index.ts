@@ -67,7 +67,7 @@ app.post("/addstory", (req, res) => {
 
     return res
       .status(201)
-      .json({ message: "add blog success", blog: insertStory });
+      .json({ message: "add blog success", blog: insertStory._id });
   });
 });
 
@@ -91,20 +91,20 @@ app.put("/updateblog/:id", (req, res) => {
       }
       return res
         .status(202)
-        .json({ message: "update blog success", blog: updateBlog });
+        .json({ message: "update blog success", blog:  updateBlog._id });
     }
   );
 });
 
 app.delete("/delete/:id", (req, res) => {
-  blog.findByIdAndRemove(req.body.id, (err, delBlogs) => {
+  blog.findByIdAndRemove(req.params.id, (err, delBlogs) => {
     if (err) {
       return res.status(500).json({ message: err });
     }
 
     return res
       .status(202)
-      .json({ message: "update blog success", blog: delBlogs });
+      .json({ message: "delete blog success", blog: delBlogs._id });
   });
 });
 
