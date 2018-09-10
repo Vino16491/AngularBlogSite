@@ -12,3 +12,8 @@ export interface State {
 export const reducers: ActionReducerMap<State> = {
   auth: fromAuth.authReducer
 };
+
+
+
+export const getAuthState = createFeatureSelector<fromAuth.State>("auth");
+export const getIsAuth = createSelector(getAuthState, fromAuth.getIsAuth);

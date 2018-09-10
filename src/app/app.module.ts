@@ -34,6 +34,14 @@ import { SidenavComponent } from "./navbar/sidenav/sidenav.component";
 /* ngrx import */
 import { StoreModule } from "@ngrx/store";
 import { reducers } from "./app.reducer";
+
+
+/* Firebase Integration */
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from "@angular/fire/auth";
+
+import { environment } from "../environments/environment";
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +67,10 @@ import { reducers } from "./app.reducer";
     AngularEditorModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    StoreModule.forRoot(reducers)
+    StoreModule.forRoot(reducers),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
