@@ -29,6 +29,11 @@ import { QuillModule } from "ngx-quill";
 import { AngularEditorModule } from "@kolkov/angular-editor";
 import { WelcomeComponent } from "./welcome/welcome.component";
 import { SidenavComponent } from "./navbar/sidenav/sidenav.component";
+
+
+/* ngrx import */
+import { StoreModule } from "@ngrx/store";
+import { reducers } from "./app.reducer";
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +58,8 @@ import { SidenavComponent } from "./navbar/sidenav/sidenav.component";
     QuillModule,
     AngularEditorModule,
     ReactiveFormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    StoreModule.forRoot(reducers)
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
