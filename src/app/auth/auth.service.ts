@@ -34,18 +34,18 @@ export class AuthService {
     this.afAuth.auth
       .createUserWithEmailAndPassword(authData.email, authData.password)
       .then(result => {
-        console.log(JSON.stringify(result.user));
+        console.log('success');
       })
-      .catch(err => console.log(err));
+      .catch(err => alert(err.message));
   }
 
   login(authData: AuthData) {
     this.afAuth.auth
       .signInWithEmailAndPassword(authData.email, authData.password)
       .then(result => {
-        console.log(JSON.stringify(result.user));
+        console.log('success');
       })
-      .catch(err => console.log(err));
+      .catch(err => alert(err.message));
   }
 
   logout() {

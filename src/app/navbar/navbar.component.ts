@@ -24,7 +24,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
   onToggleSideNav() {
     this.sidenavToggle.emit();
   }
-
+  logout(){
+    this.authService.logout()
+  }
   ngOnDestroy() {
     
   }

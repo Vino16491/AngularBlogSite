@@ -15,7 +15,7 @@ export class SidenavComponent implements OnInit, OnDestroy {
   
   isAuth$ : Observable<boolean>;
   chips: string[] = ["Emotions", "Feelings", "Technology", "programming"];
-  constructor(private store : Store<fromRoot.State>) {}
+  constructor(private store : Store<fromRoot.State>, private authService: AuthService) {}
 
   ngOnInit() {
     this.isAuth$ = this.store.select(fromRoot.getIsAuth)
@@ -26,6 +26,10 @@ export class SidenavComponent implements OnInit, OnDestroy {
   }
   onClose() {
     this.closeSideNav.emit();
+  }
+
+  logout(){
+    this.authService.logout()
   }
 
   ngOnDestroy() {
