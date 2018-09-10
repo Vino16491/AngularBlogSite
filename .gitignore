@@ -45,3 +45,5 @@ firebase-debug.log
 /functions/node_modules
 functions/lib
 functions/src/dbconnectURI.const.ts
+src/environments/environment.ts
+src/environments/environment.prod.ts
