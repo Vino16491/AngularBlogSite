@@ -1,9 +1,9 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { LoginPageComponent } from "./login-page/login-page.component";
+import { LoginPageComponent } from "./auth/login-page/login-page.component";
 import { BlogsComponent } from "./blogs/blogs.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
-import { SignuppageComponent } from "./signuppage/signuppage.component";
+import { SignuppageComponent } from "./auth/signuppage/signuppage.component";
 import { AddStoryComponent } from "./add-story/add-story.component";
 import { AuthGuard } from "./auth/auth.guard";
 

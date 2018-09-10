@@ -7,9 +7,9 @@ import { HttpClientModule } from "@angular/common/http";
 // Angular material import
 import { MaterialModule } from "./material.module";
 import { routingComponents } from "./app-routing.module";
-// import { LoginPageComponent } from './login-page/login-page.component';
+import { LoginPageComponent } from './auth/login-page/login-page.component';
 import { ProfileComponent } from "./profile/profile.component";
-// import { BlogsComponent } from './blogs/blogs.component';
+import { BlogsComponent } from './blogs/blogs.component';
 import { NavbarComponent } from "./navbar/navbar.component";
 import { FooterComponent } from "./footer/footer.component";
 
@@ -21,7 +21,7 @@ import { AuthService } from "./auth/auth.service";
 import { AppRoutingModule } from "./app-routing.module";
 
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
-import { SignuppageComponent } from "./signuppage/signuppage.component";
+import { SignuppageComponent } from "./auth/signuppage/signuppage.component";
 import { AddStoryComponent } from "./add-story/add-story.component";
 
 /* textEditor module */
@@ -29,15 +29,14 @@ import { QuillModule } from "ngx-quill";
 import { AngularEditorModule } from "@kolkov/angular-editor";
 import { WelcomeComponent } from "./welcome/welcome.component";
 import { SidenavComponent } from "./navbar/sidenav/sidenav.component";
-// import { dbConnectService } from "../db-connect.service";
 @NgModule({
   declarations: [
     AppComponent,
-    // BlogsComponent,
+    BlogsComponent,
     ProfileComponent,
     NavbarComponent,
     FooterComponent,
-    // LoginPageComponent
+    LoginPageComponent,
     routingComponents,
     PageNotFoundComponent,
     SignuppageComponent,
