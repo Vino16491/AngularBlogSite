@@ -1,22 +1,5 @@
-  <div class="flex-container-row">
-    <ng-container *ngIf="blogs.length > 0">
-      <div class="card flex-column-item" *ngFor="let blog of blogs, i as index">
-        <!-- <img src="img_avatar2.png" alt="Avatar" style="width:100%"> -->
-        <div>
-          <h4>
-            <!-- {{blogs | json}} -->
-            <b>{{blog.title}}</b>
-          </h4>
-          
-        </div>
-      </div>
-  
-    </ng-container>
-  
-  </div>
-  
-
-<div class="paginationBlogs .flex-container-row ">
-  <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
-  </mat-paginator>
+<div fxLayout="row" fxLayoutAlign="space-around stretch">
+<div class="first-column" fxFlex="20"></div>
+<div class="second-column" fxFlex="60"></div>
+<div class="third-column"></div>
 </div>

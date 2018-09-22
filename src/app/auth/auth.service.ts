@@ -23,10 +23,10 @@ export class AuthService {
     this.afAuth.authState.subscribe(user => {
       if (user) {
         this.store.dispatch(new Auth.SetAuthenticated());
-        this.router.navigate(["/blogs"]);
+        // this.router.navigate(["/blogs"]);
       } else {
         this.store.dispatch(new Auth.SetUnAuthenticated());
-        this.router.navigate(["/login"]);
+        // this.router.navigate(["/login"]);
       }
     });
   }
