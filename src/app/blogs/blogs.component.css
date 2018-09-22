@@ -1,21 +1,16 @@
-:root {
-  --main-color-first-column: coral;
-  --main-color-second-column: crimson;
-  --main-color-third-column: palegreen;
-}
 
 .first-column {
-  background-color: var(--main-color-first-column);
-  min-height: 100px;
-  min-width: 15px;
+  background-color: coral;
+  min-height: 100vh;
+  
 }
 
 .second-column {
-  background-color: var(--main-color-second-column);
-  min-height: 100px;
+  background-color: crimson;
+  min-height: 100vh;
 }
 
 .third-column {
-  background-color: var(--main-color-third-column);
-  min-height: 100px;
+  background-color: palegreen;
+  min-height: 100vh;
 }
