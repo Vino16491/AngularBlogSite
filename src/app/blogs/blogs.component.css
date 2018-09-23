@@ -4,13 +4,32 @@
   min-height: 100vh;
   
 }
+.first-column_header{
+  min-height: 50px;
+  min-width: 50%;
+  background-color:white;
+  align-content: center;
+}
 
 .second-column {
   background-color: crimson;
   min-height: 100vh;
 }
 
+.second-column_header{
+  min-height: 50px;
+  min-width: 50%;
+  background-color:snow;
+  align-content: center;
+}
 .third-column {
   background-color: palegreen;
   min-height: 100vh;
+}
+
+.third-column_header{
+  min-height: 50px;
+  min-width: 50%;
+  background-color:rgb(245, 239, 227);
+  align-content: center;
 }
