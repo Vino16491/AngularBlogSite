@@ -1,7 +1,7 @@
 
 .first-column {
   background-color: coral;
-  min-height: 100vh;
+  min-height:100px;
   
 }
 .first-column_header{
@@ -13,13 +13,22 @@
 
 .first-column_blog{
   padding-top:15px;
-  background-color: orangered;
-  width:-webkit-fill-available;
+  background-color: coral;
 }
-
+.first_column_blog-style{
+  background-color: white;
+  margin-top:15px;
+  min-height:200px;
+}
+.fc_header{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+.fc_content{
+  font-size: medium;
+}
 .second-column {
   background-color: crimson;
-  min-height: 100vh;
+  min-height:100px;
 }
 
 .second-column_header{
@@ -30,7 +39,7 @@
 }
 .third-column {
   background-color: palegreen;
-  min-height: 100vh;
+  min-height:100px;
 }
 
 .third-column_header{
