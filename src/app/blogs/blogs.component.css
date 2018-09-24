@@ -11,6 +11,12 @@
   align-content: center;
 }
 
+.first-column_blog{
+  padding-top:15px;
+  background-color: orangered;
+  width:-webkit-fill-available;
+}
+
 .second-column {
   background-color: crimson;
   min-height: 100vh;
