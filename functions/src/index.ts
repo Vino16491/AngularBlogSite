@@ -58,7 +58,7 @@ app.get("/blog", (req, res) => {
 app.post("/addstory", (req, res) => {
   const newStory = new blog();
   newStory.title = req.body.title;
-  newStory.story = req.body.title;
+  newStory.story = req.body.story;
   newStory.imageUrl = req.body.imageUrl;
 
   newStory.save((err, insertStory) => {
