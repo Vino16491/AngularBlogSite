@@ -17,7 +17,7 @@ export class AddStoryComponent implements OnInit {
     editable: true,
     spellcheck: true,
     height: '10rem',
-    minHeight: '5rem',
+    minHeight: '60vh',
     placeholder: 'Your Story Here...',
     translate: 'no',
     uploadUrl: 'v1/images', // if needed
