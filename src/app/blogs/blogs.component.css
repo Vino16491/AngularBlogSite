@@ -122,12 +122,13 @@
 /* third column blog styling */
 
 .third_column_blog-style {
-    background-color: snow;
+    background-color: rgb(245, 239, 227);
     /* margin-top: 15px; */
     min-height: 200px;
     border-style: solid;
     border-color: grey;
-    border-width: 5px 1px 1px 5px;
+    border-width: 5px 5px 1px 5px;
+    
 }
 
 /* TC blog header */
