@@ -93,7 +93,7 @@ app.post("/login", (req, res) => {
 });
 
 /* singup */
-
+/** @constant passRegex for validating password  */
 const passRegex = new RegExp(
   "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
 );
