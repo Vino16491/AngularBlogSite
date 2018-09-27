@@ -1,15 +1,24 @@
 import * as functions from "firebase-functions";
-/** module for password encryption and decryption */
+/** @module bcrypt for password encryption and decryption */
 import bcrypt = require("bcryptjs");
-/** module for creating apis  */
+/** @module express for creating apis  */
 import express = require("express");
-/** module for parsing data from documents  */
+/** @module bodyParser for parsing data from documents  */
 import bodyParser = require("body-parser");
+
+/** @constant jwt to generate sign token for authentication  */
 const jwt = require("jsonwebtoken");
-/* dbconnect */
+
+/** dbconnect url and cred*/
 import { dbConnect } from "./dbconnectURI.const";
+
+/** @module mongoose for db operations  */
 import mongoose = require("mongoose");
+
+/** @constant blog to save and update blogs in db using blog model  */
 const blog = require("./dbconnect");
+
+/** @constant auth to save and find user from db  */
 const auth = require("./userSchema");
 const db = dbConnect;
 mongoose.Promise = global.Promise;
@@ -45,7 +54,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-/** Authentication */
+/** Authentication Login API*/
 app.post("/login", (req, res) => {
   auth.findOne(
     {
@@ -74,6 +83,7 @@ app.post("/login", (req, res) => {
           }
         });
       }
+      /* Signing user cred with token */
       var token = jwt.sign(
         {
           user: user
@@ -92,7 +102,7 @@ app.post("/login", (req, res) => {
   );
 });
 
-/* singup */
+/* signup */
 /** @constant passRegex for validating password  */
 const passRegex = new RegExp(
   "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
@@ -132,6 +142,8 @@ console.log('signup')
   });
 });
 
+
+/* Blog API */
 /** Get Blogs  */
 app.get("/blog", (req, res) => {
   blog.find({}).exec((err, blogs) => {
