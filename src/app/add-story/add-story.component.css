@@ -1,22 +1,25 @@
 input[type=text] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    font-size: 35px;
-    border: none;
-    font-family: 'Roboto';
-    color: gray;
-    
+  padding: 12px 20px;
+  margin: 8px 0;
+  font-size: 35px;
+  border: none;
+  font-family: 'Roboto';
+  color: gray;
+
 }
 
-input:focus{
-    outline: none;
+input:focus {
+  outline: none;
 }
 
-.storyStyle{
-    font-family: 'Roboto';
-    font-size: 18px;
-    color: darkslategrey;
-    /* border: none; Does'nt work */
-    /* outline: none; Does'nt work */
+.storyStyle {
+  font-family: 'Roboto';
+  font-size: 18px;
+  color: darkslategrey;
+  width: auto;
+  background: white
+}
+
+.main-editor{
+    background: white;
 }
