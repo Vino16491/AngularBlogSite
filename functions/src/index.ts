@@ -94,11 +94,13 @@ app.post("/login", (req, res) => {
 
 /* singup */
 
-let passRegex = new RegExp(
+const passRegex = new RegExp(
   "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
 );
 app.post("/signup", (req, res) => {
+console.log('signup')
   if (!passRegex.test(req.body.password)) {
+
     return res.status(400).json({
       title: "An error occured",
       message: `Password must contain 
