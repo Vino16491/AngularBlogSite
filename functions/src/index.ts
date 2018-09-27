@@ -83,13 +83,40 @@ app.post("/login", (req, res) => {
           expiresIn: 7200
         }
       );
-      res.status(200).json({
+      return res.status(200).json({
         message: "Successfully logged In",
         token: token,
         userId: user._id
       });
     }
   );
+});
+
+/* singup */
+
+let passRegex = new RegExp(
+  "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+);
+app.post("/signup", (req, res) => {
+  if (!passRegex.test(req.body.password)) {
+    return res.status(400).json({
+      title: "An error occured",
+      message: `Password must contain 
+        one uppercase english letter, 
+        lower case english letter, 
+        one digit, one special character and 
+        minimum 8 character long `
+    });
+  }
+  const user = new auth({
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    password: bcrypt.hashSync(req.body.password, 10),
+    email: req.body.email
+  });
+
+  
+  
 });
 
 /** Get Blogs  */
