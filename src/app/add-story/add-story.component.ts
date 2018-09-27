@@ -12,40 +12,35 @@ export class AddStoryComponent implements OnInit {
   public userStory;
   public userStoryTitle;
   editorConfig: AngularEditorConfig = {
-    defaultFontName: "Roboto",
-    // showToolbar:false,
+    defaultFontName: "Calibri",
     editable: true,
     spellcheck: true,
-    height: "10rem",
-    minHeight: "60vh",
     placeholder: "Your Story Here...",
     translate: "no",
     defaultFontSize: "6",
     enableToolbar: true,
-    showToolbar: false,
+    showToolbar: true,
     // uploadUrl: 'v1/images', // if needed
-    customClasses: [ // optional
+    customClasses: [
+      // optional
       {
         name: "quote",
         class: "storyStyle",
-        tag:"div"
+        tag: "div"
       },
       {
-        name: 'redText',
-        class: 'storyStyle',
-        tag:"div"
+        name: "redText",
+        class: "storyStyle",
+        tag: "div"
       },
       {
         name: "titleText",
         class: "storyStyle",
-        tag: "h1",
-      },
+        tag: "h1"
+      }
     ]
   };
 
-  // myGroup = new FormGroup(){
-
-  // }
   constructor(public blogService: BlogDataService, public router: Router) {}
 
   ngOnInit() {}
@@ -83,6 +78,4 @@ export class AddStoryComponent implements OnInit {
   showToolbar() {
     this.editorConfig.showToolbar = true;
   }
-
-
 }

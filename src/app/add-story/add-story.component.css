@@ -5,6 +5,7 @@ input[type=text] {
   border: none;
   font-family: 'Roboto';
   color: gray;
+  text-align: center;
 
 }
 
@@ -16,10 +17,16 @@ input:focus {
   font-family: 'Roboto';
   font-size: 18px;
   color: darkslategrey;
-  width: auto;
-  background: white
+  background: white;
+  max-height: 60vh;
+  position: relative;
+  overflow: auto;
 }
 
 .main-editor{
     background: white;
+}
+
+.story_action-btn{
+    position: relative;
 }

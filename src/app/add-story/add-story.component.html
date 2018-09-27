@@ -1,11 +1,11 @@
-<div class="main-editor">
-  <div>
+<div class="main-editor" fxLayout="column" fxLayoutAlign="space-around stretch">
+  <div fxLayoutAlign="space-around center">
     <input type="text" id="title" name="title" placeholder="Title" [(ngModel)]="userStoryTitle">
   </div>
-  <div style="max-height: 100vh" class="storyStyle">
+  <div class="storyStyle">
     <angular-editor [(ngModel)]="userStory" [config]="editorConfig" (select)=showToolbar()></angular-editor>
   </div>
-  <div>
+  <div class="story_action-btn">
     <button mat-button color="primary" (click)="saveStory()">Save</button>
   </div>
 
