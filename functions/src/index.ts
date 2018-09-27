@@ -115,8 +115,19 @@ app.post("/signup", (req, res) => {
     email: req.body.email
   });
 
-  
-  
+  return user.save((err, result) => {
+    if (err) {
+      return res.status(500).json({
+        title: "An error occured",
+        error: err
+      });
+    }
+
+    return res.status(201).json({
+      message: "user created",
+      obj: result
+    });
+  });
 });
 
 /** Get Blogs  */
