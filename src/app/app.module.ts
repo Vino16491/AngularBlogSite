@@ -43,6 +43,7 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 
 import { environment } from "../environments/environment";
 import { ReadBlogComponent } from './blogs/read-blog/read-blog.component';
+import { BlogDataService } from "./blogs/services/blog-data.service";
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,7 +75,7 @@ import { ReadBlogComponent } from './blogs/read-blog/read-blog.component';
     AngularFirestoreModule,
     AngularFireAuthModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, BlogDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
