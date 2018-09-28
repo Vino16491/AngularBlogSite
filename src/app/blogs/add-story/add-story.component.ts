@@ -11,6 +11,8 @@ import { Router } from "@angular/router";
 export class AddStoryComponent implements OnInit {
   public userStory;
   public userStoryTitle;
+  author;
+  /* Editor Config */
   editorConfig: AngularEditorConfig = {
     defaultFontName: "Calibri",
     editable: true,
@@ -55,7 +57,8 @@ export class AddStoryComponent implements OnInit {
         if (this.userStory.length > 50) {
           let userFullStory = {
             title: this.userStoryTitle,
-            story: this.userStory
+            story: this.userStory,
+            author: this.author?this.author : 'Anonymous',
           };
           this.blogService.addUserStory(userFullStory);
           this.userStory = null;

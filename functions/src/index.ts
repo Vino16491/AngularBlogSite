@@ -160,6 +160,7 @@ app.post("/addstory", (req, res) => {
   newStory.title = req.body.title;
   newStory.story = req.body.story;
   newStory.imageUrl = req.body.imageUrl;
+  newStory.author = req.body.author;
 
   newStory.save((err, insertStory) => {
     if (err) {
