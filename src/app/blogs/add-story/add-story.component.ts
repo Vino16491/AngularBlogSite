@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { BlogDataService } from "../services/blog-data.service";
 import { AngularEditorConfig } from "@kolkov/angular-editor";
-import { Router } from "../../../node_modules/@angular/router";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-add-story",
