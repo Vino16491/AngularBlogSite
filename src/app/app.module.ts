@@ -7,9 +7,9 @@ import { HttpClientModule } from "@angular/common/http";
 // Angular material import
 import { MaterialModule } from "./material.module";
 import { routingComponents } from "./app-routing.module";
-import { LoginPageComponent } from './auth/login-page/login-page.component';
+import { LoginPageComponent } from "./auth/login-page/login-page.component";
 import { ProfileComponent } from "./profile/profile.component";
-import { BlogsComponent } from './blogs/blogs.component';
+import { BlogsComponent } from "./blogs/blogs.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { FooterComponent } from "./footer/footer.component";
 
@@ -22,7 +22,7 @@ import { AppRoutingModule } from "./app-routing.module";
 
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { SignuppageComponent } from "./auth/signuppage/signuppage.component";
-import { AddStoryComponent } from "./add-story/add-story.component";
+import { AddStoryComponent } from "./blogs/add-story/add-story.component";
 
 /* textEditor module */
 import { QuillModule } from "ngx-quill";
@@ -30,19 +30,17 @@ import { AngularEditorModule } from "@kolkov/angular-editor";
 import { WelcomeComponent } from "./welcome/welcome.component";
 import { SidenavComponent } from "./navbar/sidenav/sidenav.component";
 
-
 /* ngrx import */
 import { StoreModule } from "@ngrx/store";
 import { reducers } from "./app.reducer";
 
-
 /* Firebase Integration */
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireModule } from "@angular/fire";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 
 import { environment } from "../environments/environment";
-import { ReadBlogComponent } from './blogs/read-blog/read-blog.component';
+import { ReadBlogComponent } from "./blogs/read-blog/read-blog.component";
 import { BlogDataService } from "./blogs/services/blog-data.service";
 @NgModule({
   declarations: [

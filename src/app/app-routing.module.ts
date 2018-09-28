@@ -4,7 +4,7 @@ import { LoginPageComponent } from "./auth/login-page/login-page.component";
 import { BlogsComponent } from "./blogs/blogs.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { SignuppageComponent } from "./auth/signuppage/signuppage.component";
-import { AddStoryComponent } from "./add-story/add-story.component";
+import { AddStoryComponent } from "./blogs/add-story/add-story.component";
 import { AuthGuard } from "./auth/auth.guard";
 import { ReadBlogComponent } from "./blogs/read-blog/read-blog.component";
 
