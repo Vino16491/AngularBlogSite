@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthService } from "../auth/auth.service";
 import { BlogDataService } from "../services/blog-data.service";
+import { Router } from "@angular/router";
 @Component({
   selector: "app-blogs",
   templateUrl: "./blogs.component.html",
@@ -10,7 +11,8 @@ export class BlogsComponent implements OnInit {
   
   constructor(
     private _authservice: AuthService,
-    public blogdata: BlogDataService
+    public blogdata: BlogDataService,
+    private router: Router,
   ) {}
   
   ngOnInit() {
@@ -19,4 +21,9 @@ export class BlogsComponent implements OnInit {
 
   blogsData() {
   }
+
+  readBlog(){
+    this.router.navigate(['readblog']);
+  }
+
 }
