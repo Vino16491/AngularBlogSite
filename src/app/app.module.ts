@@ -42,6 +42,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from "@angular/fire/auth";
 
 import { environment } from "../environments/environment";
+import { ReadBlogComponent } from './blogs/read-blog/read-blog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +56,8 @@ import { environment } from "../environments/environment";
     SignuppageComponent,
     AddStoryComponent,
     WelcomeComponent,
-    SidenavComponent
+    SidenavComponent,
+    ReadBlogComponent
   ],
   imports: [
     BrowserModule,
