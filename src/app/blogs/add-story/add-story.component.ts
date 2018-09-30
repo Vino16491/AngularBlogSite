@@ -3,6 +3,7 @@ import { BlogDataService } from "../services/blog-data.service";
 import { AngularEditorConfig } from "@kolkov/angular-editor";
 import { Router } from "@angular/router";
 import * as Noty from "noty";
+import * as mojs from "mo-js";
 @Component({
   selector: "app-add-story",
   templateUrl: "./add-story.component.html",
@@ -48,7 +49,18 @@ export class AddStoryComponent implements OnInit {
   ngOnInit() {}
 
   saveStory() {
-    let noty = new Noty({ text: "noty test" })
+    let noty = new Noty({
+      text: "noty test UIUIUIUIUIUI",
+      theme: "metroui",
+      progressBar: true,
+      timeout: 30000,
+      layout: "topCenter",
+      type: "success",
+      animation: {
+        open: 'animated fadeInDown',
+        close: 'animated fadeOutUp'
+      }
+    });
     noty.show();
     // if (this.userStoryTitle) {
     //   if (
