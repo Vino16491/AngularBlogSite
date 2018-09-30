@@ -51,7 +51,7 @@ export class AddStoryComponent implements OnInit {
   saveStory() {
     let noty = new Noty({
       text: "noty test UIUIUIUIUIUI",
-      theme: "metroui",
+      theme: "mint",
       progressBar: true,
       timeout: 30000,
       layout: "topCenter",
