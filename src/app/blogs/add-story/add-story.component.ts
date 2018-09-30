@@ -59,7 +59,8 @@ export class AddStoryComponent implements OnInit {
       animation: {
         open: 'animated fadeInDown',
         close: 'animated fadeOutUp'
-      }
+      },
+      closeWith:['click','button'],
     });
     noty.show();
     // if (this.userStoryTitle) {
