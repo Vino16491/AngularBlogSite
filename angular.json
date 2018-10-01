@@ -28,9 +28,9 @@
               },
               "src/styles.css",
               "node_modules/noty/src/noty.scss",
-              "node_modules/noty/src/themes/metroui.scss"
+              "node_modules/noty/src/themes/metroui.scss"          
             ],
-            "scripts": []
+            "scripts": [ "node_modules/noty/lib/noty.js" , "node_modules/noty/lib/noty.js.map"]
           },
           "configurations": {
             "production": {
