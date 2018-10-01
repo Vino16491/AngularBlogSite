@@ -57,12 +57,16 @@ export class AddStoryComponent implements OnInit {
       layout: "topCenter",
       type: "success",
       animation: {
-        open: 'animated fadeInDown',
+        open: 'animated bounceInRight',
         close: 'animated fadeOutUp'
       },
-      closeWith:['click','button'],
+      closeWith:['click', 'button'],
     });
+    console.log(JSON.stringify(noty));
     noty.show();
+    noty.setTimeout(3000);
+    
+    
     // if (this.userStoryTitle) {
     //   if (
     //     this.userStory !== undefined &&
