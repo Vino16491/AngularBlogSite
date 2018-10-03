@@ -20,6 +20,7 @@ export class BlogsComponent implements OnInit {
   }
 
   blogsData() {
+    this.blogdata.userStory()
   }
 
   readBlog(){

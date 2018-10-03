@@ -80,7 +80,4 @@ export class AddStoryComponent implements OnInit {
     }
   }
 
-  showToolbar() {
-    this.editorConfig.showToolbar = true;
-  }
 }

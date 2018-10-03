@@ -3,7 +3,7 @@
     <input type="text" id="title" name="title" placeholder="Title" [(ngModel)]="userStoryTitle">
   </div>
   <div class="storyStyle">
-    <angular-editor [(ngModel)]="userStory" [config]="editorConfig" (select)=showToolbar()></angular-editor>
+    <angular-editor [(ngModel)]="userStory" [config]="editorConfig"></angular-editor>
   </div>
   <div class="story_action-btn">
     <button mat-button color="primary" (click)="saveStory()">Save</button>

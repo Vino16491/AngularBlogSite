@@ -8,25 +8,29 @@ export class BlogDataService {
   public blogStory;
   constructor(private http: HttpClient) {}
 
-  cloudApi(body, apiname) {
+  cloudPOSTApi(body, apiname) {
     const headers = new HttpHeaders({ "Content-type": "application/json" });
     const url = `http://localhost:5000/blog-9e6be/us-central1/blogapi/${apiname}`;
     return this.http.post(url, body, { headers });
   }
 
-
+  cloudGETApi(apiname) {
+    const headers = new HttpHeaders({ "Content-type": "application/json" });
+    const url = `http://localhost:5000/blog-9e6be/us-central1/blogapi/${apiname}`;
+    return this.http.get(url, { headers });
+  }
+  /* Save user story to database */
   addUserStory(blogstory) {
     const body = JSON.stringify(blogstory);
-    return this.cloudApi(body, "addstory").subscribe(s => {
+    return this.cloudPOSTApi(body, "addstory").subscribe(s => {
       console.log(JSON.stringify(s));
     });
   }
 
+  /* Read user story */
   userStory() {
-    if (this.blogStory != undefined && this.blogStory != null) {
-      return this.blogStory;
-    } else {
-      return false;
-    }
+    this.cloudGETApi("blog").subscribe(r => {
+      console.log(JSON.stringify(r));
+    });
   }
 }
