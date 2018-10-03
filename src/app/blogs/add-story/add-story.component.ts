@@ -67,7 +67,7 @@ export class AddStoryComponent implements OnInit {
           this.userStoryTitle = null;
           this.router.navigate(["blogs"]);
         } else {
-          alert(
+          this.toast.showInfoMessage(
             "story should be more than 50 char" +
               "Your story is only " +
               this.userStory.length +
