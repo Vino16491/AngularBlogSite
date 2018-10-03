@@ -8,7 +8,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./blogs.component.css"]
 })
 export class BlogsComponent implements OnInit {
-  
+  blogs;
   constructor(
     private _authservice: AuthService,
     public blogdata: BlogDataService,
@@ -20,7 +20,8 @@ export class BlogsComponent implements OnInit {
   }
 
   blogsData() {
-    this.blogdata.userStory()
+    this.blogdata.userStory().subscribe(blogs=>this.blogs = blogs);
+    console.log(this.blogs);
   }
 
   readBlog(){

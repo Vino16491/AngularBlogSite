@@ -29,8 +29,6 @@ export class BlogDataService {
 
   /* Read user story */
   userStory() {
-    this.cloudGETApi("blog").subscribe(r => {
-      console.log(JSON.stringify(r));
-    });
+    return this.cloudGETApi("blog");
   }
 }
