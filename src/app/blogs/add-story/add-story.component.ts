@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { BlogDataService } from "../services/blog-data.service";
 import { AngularEditorConfig } from "@kolkov/angular-editor";
 import { Router } from "@angular/router";
+import {SharedServiceService} from "../../shared-service.service"
 @Component({
   selector: "app-add-story",
   templateUrl: "./add-story.component.html",
@@ -42,7 +43,7 @@ export class AddStoryComponent implements OnInit {
     ]
   };
 
-  constructor(public blogService: BlogDataService, public router: Router) {}
+  constructor(public blogService: BlogDataService, public router: Router, private toast:SharedServiceService) {}
 
   ngOnInit() {}
 
@@ -75,7 +76,7 @@ export class AddStoryComponent implements OnInit {
         }
       }
     } else if (this.userStoryTitle == null || this.userStoryTitle) {
-      alert("Please provide some title to your story");
+     this.toast.showWarnMessage('Please provide some title to your story')
     }
   }
 
