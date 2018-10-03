@@ -2,8 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { BlogDataService } from "../services/blog-data.service";
 import { AngularEditorConfig } from "@kolkov/angular-editor";
 import { Router } from "@angular/router";
-import * as Noty from "noty";
-import * as mojs from "mo-js";
 @Component({
   selector: "app-add-story",
   templateUrl: "./add-story.component.html",
@@ -49,52 +47,36 @@ export class AddStoryComponent implements OnInit {
   ngOnInit() {}
 
   saveStory() {
-    let noty = new Noty({
-      text: "noty test UIUIUIUIUIUI",
-      theme: "metroui",
-      progressBar: true,
-      timeout: 3000,
-      layout: "topCenter",
-      type: "success",
-      animation: {
-        open: 'animated bounceInRight',
-        close: 'animated fadeOutUp'
-      },
-      closeWith:['click', 'button'],
-    });
-    console.log(JSON.stringify(noty));
-    noty.show();
-    noty.setTimeout(3000);
     
     
-    // if (this.userStoryTitle) {
-    //   if (
-    //     this.userStory !== undefined &&
-    //     this.userStory !== null &&
-    //     this.userStory
-    //   ) {
-    //     if (this.userStory.length > 50) {
-    //       let userFullStory = {
-    //         title: this.userStoryTitle,
-    //         story: this.userStory,
-    //         author: this.author ? this.author : "Anonymous"
-    //       };
-    //       this.blogService.addUserStory(userFullStory);
-    //       this.userStory = null;
-    //       this.userStoryTitle = null;
-    //       this.router.navigate(["blogs"]);
-    //     } else {
-    //       alert(
-    //         "story should be more than 50 char" +
-    //           "Your story is only " +
-    //           this.userStory.length +
-    //           " char"
-    //       );
-    //     }
-    //   }
-    // } else if (this.userStoryTitle == null || this.userStoryTitle) {
-    //   alert("Please provide some title to your story");
-    // }
+    if (this.userStoryTitle) {
+      if (
+        this.userStory !== undefined &&
+        this.userStory !== null &&
+        this.userStory
+      ) {
+        if (this.userStory.length > 50) {
+          let userFullStory = {
+            title: this.userStoryTitle,
+            story: this.userStory,
+            author: this.author ? this.author : "Anonymous"
+          };
+          this.blogService.addUserStory(userFullStory);
+          this.userStory = null;
+          this.userStoryTitle = null;
+          this.router.navigate(["blogs"]);
+        } else {
+          alert(
+            "story should be more than 50 char" +
+              "Your story is only " +
+              this.userStory.length +
+              " char"
+          );
+        }
+      }
+    } else if (this.userStoryTitle == null || this.userStoryTitle) {
+      alert("Please provide some title to your story");
+    }
   }
 
   showToolbar() {
