@@ -30,7 +30,7 @@ export class BlogsComponent implements OnInit {
     // console.log(this.blogs);
   }
 
-  readBlog() {
-    this.router.navigate(["readblog"]);
+  readBlog(blog) {
+    this.router.navigate(["readblog", blog]);
   }
 }
