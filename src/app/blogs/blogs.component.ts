@@ -4,7 +4,7 @@ import { BlogDataService } from "./services/blog-data.service";
 import { Router } from "@angular/router";
 export interface Idata {
   message: "";
-  blog: [];
+  blog: ArrayConstructor;
 }
 @Component({
   selector: "app-blogs",
