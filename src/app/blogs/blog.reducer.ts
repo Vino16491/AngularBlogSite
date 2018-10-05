@@ -11,9 +11,9 @@ const initialState: BlogState = {
 export function blogReducer(state = initialState, action: BlogAction) {
   if (action.type == SET_BLOGS) {
     console.log(JSON.stringify(action.payload) + "userproducts");
-    return {...state, blogs:action.payload};
+    return state.blogs = action.payload ;
   }
   return state;
 }
 
-export const getBlogs = (state:BlogState)=>state.blogs;
+export const getBlogs = (state:BlogState)=>state;
