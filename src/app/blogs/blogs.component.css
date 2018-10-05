@@ -3,7 +3,9 @@
 .first-column {
     background-color: coral;
     min-height: 100px;
-    
+    border-style: solid;
+    border-color: grey;
+    border-width: 5px 1px 1px 5px;
 
 }
 
@@ -72,6 +74,9 @@
 .second-column {
     background-color: crimson;
     min-height: 100px;
+    border-style: solid;
+    border-color: grey;
+    border-width: 5px 1px 1px 5px;
 }
 
 /* second Column main header */
@@ -117,6 +122,9 @@
 .third-column {
     background-color: palegreen;
     min-height: 100px;
+    border-style: solid;
+    border-color: grey;
+    border-width: 5px 5px 1px 5px;
 }
 
 /* third column main header */
