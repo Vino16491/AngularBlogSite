@@ -15,8 +15,6 @@ export class ReadBlogComponent implements OnInit {
   constructor(private route: ActivatedRoute, private store: Store<fromRoot.State>) {}
 
   ngOnInit() {
-    this.readblog$ = this.store.select(fromRoot.getBlogs)
-    this.readblog$.subscribe(blog=> this.readBlogs = blog )
     this.route.params.subscribe(id => {
       if(this.readBlogs){
         console.log(JSON.stringify(this.readBlogs))
