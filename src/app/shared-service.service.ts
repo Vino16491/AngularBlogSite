@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 // import { IziToast, IziToastSettings } from "izitoast";
 import { Ng2IzitoastService } from "ng2-izitoast";
-import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from "ngx-toastr";
 
 @Injectable({
   providedIn: "root"
@@ -19,7 +19,10 @@ export class SharedServiceService {
     layout: 2,
     message: ""
   };
-  constructor(private toastService: Ng2IzitoastService, private toastr:ToastrService) {}
+  constructor(
+    private toastService: Ng2IzitoastService,
+    private toastr: ToastrService
+  ) {}
 
   showSuccessMessage(msg) {
     this.iziToastModel.message = msg;
@@ -43,6 +46,11 @@ export class SharedServiceService {
   }
 
   showSuccess(msg) {
-    this.toastr.success(msg);
+    this.toastr.success(msg, "", {
+      progressBar: true,
+      timeOut: 3000,
+      progressAnimation: "decreasing",
+      closeButton: true
+    });
   }
 }
