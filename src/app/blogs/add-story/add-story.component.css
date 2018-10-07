@@ -25,6 +25,7 @@ input:focus {
 
 .main-editor{
     background: white;
+    min-height: 100vh;
 }
 
 .story_action-btn{

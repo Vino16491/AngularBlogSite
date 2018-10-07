@@ -45,6 +45,7 @@ import { BlogDataService } from "./blogs/services/blog-data.service";
 
 /* izitoast model */
 import { Ng2IziToastModule } from 'ng2-izitoast';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,7 +76,8 @@ import { Ng2IziToastModule } from 'ng2-izitoast';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    Ng2IziToastModule
+    Ng2IziToastModule,
+    ToastrModule.forRoot()
   ],
   providers: [AuthService, BlogDataService],
   bootstrap: [AppComponent]

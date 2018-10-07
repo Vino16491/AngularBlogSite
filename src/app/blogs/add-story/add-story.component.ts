@@ -65,6 +65,7 @@ export class AddStoryComponent implements OnInit {
           this.blogService.addUserStory(userFullStory);
           this.userStory = null;
           this.userStoryTitle = null;
+          this.toast.showSuccess('Story added successfully')
           this.router.navigate(["blogs"]);
         } else {
           this.toast.showInfoMessage(
