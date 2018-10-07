@@ -12,7 +12,7 @@ import { take } from "rxjs/operators";
 import { Store } from "@ngrx/store";
 import * as fromRoot from "../app.reducer";
 import { BlogDataService } from "../blogs/services/blog-data.service";
-import * as blogs from '../blogs/blogs.action'
+// import * as blogs from '../blogs/blogs.action'
 @Component({
   selector: "app-navbar",
   templateUrl: "./navbar.component.html",
@@ -28,14 +28,14 @@ export class NavbarComponent implements OnInit, OnDestroy {
   constructor(
     private store: Store<fromRoot.State>,
     private authService: AuthService,
-    private bserv: BlogDataService
+    // private bserv: BlogDataService
   ) {}
 
   ngOnInit() {
     this.isAuth$ = this.store.select(fromRoot.getIsAuth);
-    this.bserv.userStory().pipe(take(1)).subscribe(blog=>{
-      this.store.dispatch(new blogs.SetBlogs(blog));
-    });
+    // this.bserv.userStory().pipe(take(1)).subscribe(blog=>{
+    //   this.store.dispatch(new blogs.SetBlogs(blog));
+    // });
   }
   onToggleSideNav() {
     this.sidenavToggle.emit();

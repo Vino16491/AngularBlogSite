@@ -2,7 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import { AuthService } from "../auth/auth.service";
 import { BlogDataService } from "./services/blog-data.service";
 import { Router } from "@angular/router";
-
+import { Store } from "@ngrx/store";
+import * as fromRoot from "../app.reducer";
+import * as blogs from '../blogs/blogs.action'
 export interface Idata {
   message: "";
   blog: ArrayConstructor;
@@ -18,6 +20,7 @@ export class BlogsComponent implements OnInit {
     private _authservice: AuthService,
     public blogdata: BlogDataService,
     private router: Router,
+    private store: Store<fromRoot.State>,
     
   ) {}
 
@@ -27,13 +30,13 @@ export class BlogsComponent implements OnInit {
 
   blogsData() {
     this.blogdata.userStory().subscribe((blog: Idata) => {
-      
+      this.store.dispatch(new blogs.SetBlogs(blog.blog));
       return (this.blogs = blog.blog);
     });
     // console.log(this.blogs);
   }
 
   readBlog(id) {
-    this.router.navigate(["readblog"]);
+    this.router.navigate(["readblog", {id}]);
   }
 }
