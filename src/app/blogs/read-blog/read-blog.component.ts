@@ -26,7 +26,6 @@ export class ReadBlogComponent implements OnInit {
       this.route.params.subscribe(id => {
         let readBlogId = id;
         this.readStory = this.readBlogs.find(readingblog => readingblog._id == readBlogId.id);
-        console.log(JSON.stringify(this.readStory));
       });
     });
 
