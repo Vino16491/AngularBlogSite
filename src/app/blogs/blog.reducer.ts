@@ -12,7 +12,7 @@ export interface State {
 
 const initialState: State [] = [];
 
-export function authReducer(state = initialState, action: BlogActions) {
+export function blogReducer(state = initialState, action: BlogActions) {
 if(action.type == SET_BLOGS){
     return action.payload;
 }
