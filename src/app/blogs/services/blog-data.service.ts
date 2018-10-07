@@ -27,7 +27,7 @@ export class BlogDataService {
     });
   }
 
-  /* Read user story */
+  /** @method userStory to fetch all blogs from db */
   userStory() {
     return this.cloudGETApi("blog");
   }

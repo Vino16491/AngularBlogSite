@@ -19,6 +19,4 @@ if(action.type == SET_BLOGS){
 return state; 
 
 }
-
-
 export const getBlogs = (state: State) => state;

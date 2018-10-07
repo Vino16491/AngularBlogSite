@@ -4,6 +4,7 @@ import {Observable} from 'rxjs'
 /* Ngrx Import */
 import { Store } from "@ngrx/store";
 import * as fromRoot from "../../app.reducer";
+import { take } from "rxjs/operators";
 @Component({
   selector: "app-read-blog",
   templateUrl: "./read-blog.component.html",
@@ -20,7 +21,8 @@ export class ReadBlogComponent implements OnInit {
         console.log(JSON.stringify(this.readBlogs))
       }
      
-      
+      this.readblog$= this.store.select(fromRoot.getBlogs).pipe(take(1));
+      this.readblog$.subscribe(b=>console.log(JSON.stringify(b)));
       // this.blog = blog;
     });
   }
