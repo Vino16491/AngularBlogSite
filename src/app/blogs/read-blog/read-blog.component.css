@@ -1,3 +1,12 @@
 .pagesize{
     min-height: 100vh;
 }
+
+.story-title{
+    padding: 16px;
+    text-align: center;
+}
+
+.story-content{
+    padding:24px;
+}

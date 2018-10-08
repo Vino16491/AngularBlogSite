@@ -1,7 +1,11 @@
 <div class="pagesize">
-  <h1>{{readStory.title?readStory.title:""}}</h1>
+  <div class="story-title">
+    <h1>{{readStory.title?readStory.title:""}}</h1>
+  </div>
   
-  <p>{{readStory.story?readStory.story:""}}</p>
+  <div class="story-content">
+    <p [innerHTML]='readStory.story?readStory.story:""'></p>
+  </div>
   
 </div>
 
