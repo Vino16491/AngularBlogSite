@@ -44,8 +44,8 @@ import { ReadBlogComponent } from "./blogs/read-blog/read-blog.component";
 import { BlogDataService } from "./blogs/services/blog-data.service";
 
 /* izitoast model */
-import { Ng2IziToastModule } from 'ng2-izitoast';
-import { ToastrModule } from 'ngx-toastr';
+import { Ng2IziToastModule } from "ng2-izitoast";
+import { ToastrModule } from "ngx-toastr";
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,7 +77,12 @@ import { ToastrModule } from 'ngx-toastr';
     AngularFirestoreModule,
     AngularFireAuthModule,
     Ng2IziToastModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot({
+      maxOpened: 3,
+      preventDuplicates: true,
+      autoDismiss: true,
+      resetTimeoutOnDuplicate: true
+    })
   ],
   providers: [AuthService, BlogDataService],
   bootstrap: [AppComponent]

@@ -20,18 +20,20 @@ export class SharedServiceService {
     message: ""
   };
 
+  /* config for toastr package */
   toastConfig : Object = {
     progressBar: true,
     timeOut: 3000,
     progressAnimation: "decreasing",
     closeButton: true,
-    positionClass: "toast-top-center"
+    positionClass: "toast-top-center",
   };
   constructor(
     private toastService: Ng2IzitoastService,
     private toastr: ToastrService
   ) {}
 
+  /* izitoast toast message methods */
   showSuccessMessage(msg) {
     this.iziToastModel.message = msg;
     this.toastService.success(this.iziToastModel);
@@ -53,6 +55,7 @@ export class SharedServiceService {
     this.toastService.info(this.iziToastModel);
   }
 
+  /* toastr package toast messages methods*/
   showSuccess(title, msg = "") {
     this.toastr.success(msg, title, this.toastConfig);
   }
