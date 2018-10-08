@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { BlogDataService } from "../services/blog-data.service";
 import { AngularEditorConfig } from "@kolkov/angular-editor";
 import { Router } from "@angular/router";
-import {SharedServiceService} from "../../shared-service.service"
+import { SharedServiceService } from "../../shared-service.service";
 @Component({
   selector: "app-add-story",
   templateUrl: "./add-story.component.html",
@@ -43,13 +43,15 @@ export class AddStoryComponent implements OnInit {
     ]
   };
 
-  constructor(public blogService: BlogDataService, public router: Router, private toast:SharedServiceService) {}
+  constructor(
+    public blogService: BlogDataService,
+    public router: Router,
+    private toast: SharedServiceService
+  ) {}
 
   ngOnInit() {}
 
   saveStory() {
-    
-    
     if (this.userStoryTitle) {
       if (
         this.userStory !== undefined &&
@@ -65,10 +67,11 @@ export class AddStoryComponent implements OnInit {
           this.blogService.addUserStory(userFullStory);
           this.userStory = null;
           this.userStoryTitle = null;
-          this.toast.showSuccess('Story added successfully')
+          this.toast.showSuccess("Story added successfully");
           this.router.navigate(["blogs"]);
         } else {
-          this.toast.showInfoMessage(
+          this.toast.showInfo(
+            "Story Size",
             "story should be more than 50 char" +
               "Your story is only " +
               this.userStory.length +
@@ -77,8 +80,10 @@ export class AddStoryComponent implements OnInit {
         }
       }
     } else if (this.userStoryTitle == null || this.userStoryTitle) {
-     this.toast.showWarnMessage('Please provide some title to your story')
+      this.toast.showWarn(
+        "title is missing",
+        "Please provide some title to your story"
+      );
     }
   }
-
 }
