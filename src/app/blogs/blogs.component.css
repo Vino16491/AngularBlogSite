@@ -14,7 +14,7 @@
 .first-column_header {
     min-height: 50px;
     min-width: 50%;
-    background-color: grey;
+    background-color: #424242;
     position: -webkit-sticky;
     position:sticky !important;
     top: 0px;
@@ -85,7 +85,7 @@
 .second-column_header {
     min-height: 50px;
     min-width: 50%;
-    background-color: grey;
+    background-color: #424242;
     color: #03a9f4
 }
 
@@ -134,7 +134,7 @@
 .third-column_header {
     min-height: 50px;
     min-width: 50%;
-    background-color: grey;
+    background-color: #424242;
     color: palegreen;
 }
 
