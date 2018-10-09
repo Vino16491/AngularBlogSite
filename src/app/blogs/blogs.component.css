@@ -4,7 +4,7 @@
     background-color: coral;
     min-height: 100px;
     border-style: solid;
-    border-color: grey;
+    border-color:#c2185b;
     border-width: 5px 1px 1px 5px;
 
 }
@@ -14,10 +14,11 @@
 .first-column_header {
     min-height: 50px;
     min-width: 50%;
-    background-color: white;
+    background-color: grey;
     position: -webkit-sticky;
     position:sticky !important;
     top: 0px;
+    color: coral;
 }  
 
 /* .sticky {
@@ -48,11 +49,11 @@
 /* Blog Style */
 
 .first_column_blog-style {
-    background-color: white;
+    background-color: coral;
     /* margin-top: 15px; */
     min-height: 200px;
     border-style: solid;
-    border-color: grey;
+    border-color:#c2185b;
     border-width: 5px 1px 1px 5px;
 }
 
@@ -72,10 +73,10 @@
 /* Second Column CSS */
 
 .second-column {
-    background-color: crimson;
+    background-color: #03a9f4;
     min-height: 100px;
     border-style: solid;
-    border-color: grey;
+    border-color:#c2185b;
     border-width: 5px 1px 1px 5px;
 }
 
@@ -84,7 +85,8 @@
 .second-column_header {
     min-height: 50px;
     min-width: 50%;
-    background-color: snow;
+    background-color: grey;
+    color: #03a9f4
 }
 
 /* second Column blog block */
@@ -96,11 +98,11 @@
 /* second column blog styling */
 
 .second_column_blog-style {
-    background-color: snow;
+    background-color: #03a9f4;
     /* margin-top: 15px; */
     min-height: 300px;
     border-style: solid;
-    border-color: grey;
+    border-color:#c2185b;
     border-width: 5px 1px 1px 5px;
 }
 
@@ -123,7 +125,7 @@
     background-color: palegreen;
     min-height: 100px;
     border-style: solid;
-    border-color: grey;
+    border-color:#c2185b;
     border-width: 5px 5px 1px 5px;
 }
 
@@ -132,7 +134,8 @@
 .third-column_header {
     min-height: 50px;
     min-width: 50%;
-    background-color: rgb(245, 239, 227);
+    background-color: grey;
+    color: palegreen;
 }
 
 /* third Column blog block */
@@ -144,11 +147,11 @@
 /* third column blog styling */
 
 .third_column_blog-style {
-    background-color: rgb(245, 239, 227);
+    background-color: palegreen;
     /* margin-top: 15px; */
     min-height: 200px;
     border-style: solid;
-    border-color: grey;
+    border-color:#c2185b;
     border-width: 5px 5px 1px 5px;
     
 }
