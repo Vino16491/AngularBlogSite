@@ -12,13 +12,15 @@ import * as Auth from "./auth.actions";
 /* Firebase */
 import { AngularFireAuth } from "@angular/fire/auth";
 import { SharedService } from "../shared-service.service";
+import { HttpHeaders, HttpClient } from "@angular/common/http";
 @Injectable()
 export class AuthService {
   constructor(
     private router: Router,
     private afAuth: AngularFireAuth,
     private store: Store<fromRoot.State>,
-    private toastr: SharedService
+    private toastr: SharedService,
+    private http: HttpClient
   ) {}
 
   initAuthListener() {
@@ -32,6 +34,12 @@ export class AuthService {
       }
     });
   }
+
+  cloudApiPOST(body, apiname){
+    const headers = new HttpHeaders({ "Content-type": "application/json" });
+    const url = `http://localhost:5000/blog-9e6be/us-central1/blogapi/${apiname}`;
+    return this.http.post(url, body, { headers });
+  }
   registeredUser(authData: AuthData) {
     this.afAuth.auth
       .createUserWithEmailAndPassword(authData.email, authData.password)
@@ -40,6 +48,17 @@ export class AuthService {
       })
       .catch(err => this.toastr.showWarn('Registration err' ,err.message));
   }
+
+  loginMongoServer(authdata: AuthData){
+    let body = authdata;
+    this.cloudApiPOST(body, 'login').subscribe(l=>console.log(JSON.stringify(l)))
+  }
+
+  signupMongoServer(authdata:AuthData){
+    let body = authdata;
+    this.cloudApiPOST(body, 'signup').subscribe(s=>console.log(JSON.stringify(s)))
+  }
+
 
   login(authData: AuthData) {
     this.afAuth.auth
