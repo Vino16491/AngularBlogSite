@@ -1,9 +1,6 @@
-.login-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
+mat-form-field{
+  width:300px;
 }
-
-.login-full-width {
-  width: 100%;
+.login-form{
+  margin-top:15%;
 }

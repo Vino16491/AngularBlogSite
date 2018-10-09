@@ -1,17 +1,17 @@
-<div style="padding: 100px;" class="page-size">
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
-    <mat-form-field class="login-full-width">
+<div class="login-form page-size">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate fxLayout="column" fxLayoutAlign="center center">
+    <mat-form-field>
       <input matInput placeholder="Email" type="email" formControlName="emailId">
       <mat-error>Email is required</mat-error>
     </mat-form-field>
 
-    <mat-form-field class="login-full-width">
+    <mat-form-field>
       <input matInput placeholder="Password" type="password" formControlName="userPass">
       <mat-error>password is
         <strong>required</strong>
       </mat-error>
     </mat-form-field>
 
-    <button mat-stroked-button color="primary" style="float: right" type="submit">Submit</button>
+    <button mat-button color="primary" type="submit">Submit</button>
   </form>
 </div>
