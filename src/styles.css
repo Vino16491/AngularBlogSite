@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: 'Raleway', sans-serif; min-width: 100%; min-height: 100vh}
+body { margin: 0; font-family: 'Raleway', sans-serif; min-width: 100%; min-height: 90vh}
+.page-size{
+    min-height: 90vh;
+}

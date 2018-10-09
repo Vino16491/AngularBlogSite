@@ -11,12 +11,14 @@ import * as Auth from "./auth.actions";
 
 /* Firebase */
 import { AngularFireAuth } from "@angular/fire/auth";
+import { SharedService } from "../shared-service.service";
 @Injectable()
 export class AuthService {
   constructor(
     private router: Router,
     private afAuth: AngularFireAuth,
-    private store: Store<fromRoot.State>
+    private store: Store<fromRoot.State>,
+    private toastr: SharedService
   ) {}
 
   initAuthListener() {
@@ -36,7 +38,7 @@ export class AuthService {
       .then(result => {
         console.log('success');
       })
-      .catch(err => alert(err.message));
+      .catch(err => this.toastr.showWarn('Registration err' ,err.message));
   }
 
   login(authData: AuthData) {
@@ -45,7 +47,7 @@ export class AuthService {
       .then(result => {
         console.log('success');
       })
-      .catch(err => alert(err.message));
+      .catch(err => this.toastr.showWarn('Login Err', err.message));
   }
 
   logout() {

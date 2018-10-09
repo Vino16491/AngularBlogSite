@@ -6,7 +6,7 @@ import { ToastrService } from "ngx-toastr";
 @Injectable({
   providedIn: "root"
 })
-export class SharedServiceService {
+export class SharedService {
   iziToastModel = {
     timeout: 3000,
     close: true,

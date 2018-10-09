@@ -46,6 +46,7 @@ import { BlogDataService } from "./blogs/services/blog-data.service";
 /* izitoast model */
 import { Ng2IziToastModule } from "ng2-izitoast";
 import { ToastrModule } from "ngx-toastr";
+import { SharedService } from "./shared-service.service";
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,7 +85,7 @@ import { ToastrModule } from "ngx-toastr";
       resetTimeoutOnDuplicate: true
     })
   ],
-  providers: [AuthService, BlogDataService],
+  providers: [AuthService, BlogDataService, SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
