@@ -81,8 +81,13 @@ export class AuthService {
     }, err=>{this.toastr.showError('error', 'User Id or password is incorrect')})
   }
 
-  signupMongoServer(authdata: AuthData) {
-    let body = authdata;
+  signupMongoServer(firstname,mobileNumber,email, password ) {
+    let body = {
+      firstname:firstname,
+      mobileNumber:mobileNumber,
+      password:password,
+      email:email
+    };
     this.cloudApiPOST(body, "signup").subscribe(s =>
       console.log(JSON.stringify(s))
     );

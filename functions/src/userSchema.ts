@@ -11,7 +11,7 @@ const schema = new Schema({
         type: String,
         required: true
     },
-    lastname: {
+    mobileNumber: {
         type: String,
         required: true
     },

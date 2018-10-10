@@ -108,7 +108,7 @@ const passRegex = new RegExp(
   "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
 );
 app.post("/signup", (req, res) => {
-console.log('signup')
+console.log('signup' + req.body.password)
   if (!passRegex.test(req.body.password)) {
 
     return res.status(400).json({
@@ -122,7 +122,7 @@ console.log('signup')
   }
   const user = new auth({
     firstname: req.body.firstname,
-    lastname: req.body.lastname,
+    mobileNumber: req.body.mobileNumber,
     password: bcrypt.hashSync(req.body.password, 10),
     email: req.body.email
   });

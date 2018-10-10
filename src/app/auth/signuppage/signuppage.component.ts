@@ -12,9 +12,6 @@ export class SignuppageComponent implements OnInit {
 
   ngOnInit() {}
   onSubmit(form: NgForm) {
-    this.authService.registeredUser({
-      email: form.value.emailId,
-      password: form.value.userPass
-    });
+    this.authService.signupMongoServer(form.value.username, form.value.mobileNumber, form.value.emailId, form.value.userPass);
   }
 }

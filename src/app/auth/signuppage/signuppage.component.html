@@ -8,7 +8,7 @@
       </mat-error>
     </mat-form-field>
     <mat-form-field class="signup-full-width">
-      <input matInput placeholder="Mobile Number" type="number" ngModel name="mobileNumber" #mobileNumber="ngModel">
+      <input matInput placeholder="Mobile Number" type="tel" ngModel name="mobileNumber" #mobileNumber="ngModel">
       <mat-error *ngIf="mobileNumber.hasError('required')">
         Mobile Number is
         <strong>required</strong>
