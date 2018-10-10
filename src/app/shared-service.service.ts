@@ -55,17 +55,22 @@ export class SharedService {
     this.toastService.info(this.iziToastModel);
   }
 
-  /* toastr package toast messages methods*/
+  /** @method showSuccess toastr package toast success method*/
   showSuccess(title, msg = "") {
     this.toastr.success(msg, title, this.toastConfig);
   }
 
+  /** @method showWarn toastr package toast Warning method*/
   showWarn(title, msg = "") {
     this.toastr.warning(msg, title, this.toastConfig );
   }
+
+  /** @method showError toastr package toast error method*/
   showError(title, msg=""){
     this.toastr.error(msg, title, this.toastConfig);
   }
+
+  /** @method showInfo toastr package toast info method*/
   showInfo(title,msg=""){
     this.toastr.info(msg, title, this.toastConfig);
   }

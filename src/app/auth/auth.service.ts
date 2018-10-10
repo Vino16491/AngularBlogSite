@@ -2,8 +2,10 @@ import { Subject } from "rxjs";
 import { User } from "./user.model";
 import { AuthData } from "./auth-data.model";
 import { Router } from "@angular/router";
-
 import { Injectable } from "@angular/core";
+
+import { map, take, catchError } from "rxjs/operators";
+import {Observable} from 'rxjs'
 /* ngrx ........... */
 import { Store } from "@ngrx/store";
 import * as fromRoot from "../app.reducer";
@@ -12,7 +14,26 @@ import * as Auth from "./auth.actions";
 /* Firebase */
 import { AngularFireAuth } from "@angular/fire/auth";
 import { SharedService } from "../shared-service.service";
-import { HttpHeaders, HttpClient } from "@angular/common/http";
+import {
+  HttpHeaders,
+  HttpClient,
+  HttpResponse,
+  HttpErrorResponse
+} from "@angular/common/http";
+
+export interface successResponse {
+  userId: "";
+  token: "";
+  message: "";
+}
+export interface errResponse {
+  error: {
+    error: {
+      message: "";
+    };
+    title: "";
+  };
+}
 @Injectable()
 export class AuthService {
   constructor(
@@ -35,7 +56,7 @@ export class AuthService {
     });
   }
 
-  cloudApiPOST(body, apiname){
+  cloudApiPOST(body, apiname) {
     const headers = new HttpHeaders({ "Content-type": "application/json" });
     const url = `http://localhost:5000/blog-9e6be/us-central1/blogapi/${apiname}`;
     return this.http.post(url, body, { headers });
@@ -44,29 +65,36 @@ export class AuthService {
     this.afAuth.auth
       .createUserWithEmailAndPassword(authData.email, authData.password)
       .then(result => {
-        console.log('success');
+        console.log("success");
       })
-      .catch(err => this.toastr.showWarn('Registration err' ,err.message));
+      .catch(err => this.toastr.showWarn("Registration err", err.message));
   }
 
-  loginMongoServer(authdata: AuthData){
+  loginMongoServer(authdata: AuthData) {
     let body = authdata;
-    this.cloudApiPOST(body, 'login').subscribe(l=>console.log(JSON.stringify(l)))
+    this.cloudApiPOST(body, "login").subscribe((l:successResponse)=>{
+      if(l.token){
+        this.toastr.showSuccess('success', 'user logged in successfully');
+        this.store.dispatch(new Auth.SetAuthenticated);
+        return this.router.navigate(['/blogs']);
+      }
+    })
   }
 
-  signupMongoServer(authdata:AuthData){
+  signupMongoServer(authdata: AuthData) {
     let body = authdata;
-    this.cloudApiPOST(body, 'signup').subscribe(s=>console.log(JSON.stringify(s)))
+    this.cloudApiPOST(body, "signup").subscribe(s =>
+      console.log(JSON.stringify(s))
+    );
   }
-
 
   login(authData: AuthData) {
     this.afAuth.auth
       .signInWithEmailAndPassword(authData.email, authData.password)
       .then(result => {
-        console.log('success');
+        console.log("success");
       })
-      .catch(err => this.toastr.showWarn('Login Err', err.message));
+      .catch(err => this.toastr.showWarn("Login Err", err.message));
   }
 
   logout() {

@@ -21,9 +21,9 @@ export class LoginPageComponent implements OnInit {
     });
   }
   onSubmit() {
-    this._authservice.login({
+    this._authservice.loginMongoServer({
       email: this.loginForm.value.emailId,
       password: this.loginForm.value.userPass
-    });
+    })
   }
 }
