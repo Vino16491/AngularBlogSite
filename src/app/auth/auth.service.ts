@@ -5,7 +5,7 @@ import { Router } from "@angular/router";
 import { Injectable } from "@angular/core";
 
 import { map, take, catchError } from "rxjs/operators";
-import {Observable} from 'rxjs'
+import { Observable } from "rxjs";
 /* ngrx ........... */
 import { Store } from "@ngrx/store";
 import * as fromRoot from "../app.reducer";
@@ -72,24 +72,36 @@ export class AuthService {
 
   loginMongoServer(authdata: AuthData) {
     let body = authdata;
-    this.cloudApiPOST(body, "login").subscribe((l:successResponse)=>{
-      if(l.token){
-        this.toastr.showSuccess('success', 'user logged in successfully');
-        this.store.dispatch(new Auth.SetAuthenticated);
-        return this.router.navigate(['/blogs']);
+    this.cloudApiPOST(body, "login").subscribe(
+      (l: successResponse) => {
+        if (l.token) {
+          this.toastr.showSuccess("success", "user logged in successfully");
+          this.store.dispatch(new Auth.SetAuthenticated());
+          return this.router.navigate(["/blogs"]);
+        }
+      },
+      err => {
+        this.toastr.showError("error", "User Id or password is incorrect");
       }
-    }, err=>{this.toastr.showError('error', 'User Id or password is incorrect')})
+    );
   }
 
-  signupMongoServer(firstname,mobileNumber,email, password ) {
+  signupMongoServer(firstname, mobileNumber, email, password) {
     let body = {
-      firstname:firstname,
-      mobileNumber:mobileNumber,
-      password:password,
-      email:email
+      firstname: firstname,
+      mobileNumber: mobileNumber,
+      password: password,
+      email: email
     };
-    this.cloudApiPOST(body, "signup").subscribe(s =>
-      console.log(JSON.stringify(s))
+    this.cloudApiPOST(body, "signup").subscribe(
+      s => {
+        this.toastr.showSuccess("registered", "user registered successfully");
+        return this.router.navigate(["/login"]);
+      },
+      err => {
+        this.toastr.showError(err.error.title, err.error.message);
+        console.log(JSON.stringify(err));
+      }
     );
   }
 
