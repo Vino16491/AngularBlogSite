@@ -117,7 +117,8 @@ console.log('signup' + req.body.password)
         one uppercase english letter, 
         lower case english letter, 
         one digit, one special character and 
-        minimum 8 character long `
+        minimum 8 character long `,
+      shortMsg:'Password is not valid'
     });
   }
   const user = new auth({

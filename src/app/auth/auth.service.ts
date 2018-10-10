@@ -99,7 +99,7 @@ export class AuthService {
         return this.router.navigate(["/login"]);
       },
       err => {
-        this.toastr.showError(err.error.title, err.error.message);
+        this.toastr.showError(err.error.title, err.error.shortMsg);
         console.log(JSON.stringify(err));
       }
     );
