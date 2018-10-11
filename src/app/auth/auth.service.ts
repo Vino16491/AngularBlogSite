@@ -86,6 +86,15 @@ export class AuthService {
     );
   }
 
+  passresetMongoServer(email){
+    const body=email;
+    this.cloudApiPOST(body, "passreset").subscribe(r=>{
+      this.toastr.showSuccess('reset email', 'password reset email sent to your registered id successfully')
+    }, err=>{
+      this.toastr.showError('server error', 'Please contact administrator');
+    })
+  }
+
   signupMongoServer(firstname, mobileNumber, email, password) {
     let body = {
       firstname: firstname,

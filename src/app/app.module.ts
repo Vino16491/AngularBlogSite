@@ -88,6 +88,7 @@ import { PassresetComponent } from './auth/passreset/passreset.component';
     })
   ],
   providers: [AuthService, BlogDataService, SharedService],
+  entryComponents:[PassresetComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
