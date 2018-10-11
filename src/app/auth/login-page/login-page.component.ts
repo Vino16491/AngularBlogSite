@@ -9,7 +9,7 @@ import { AuthService } from "../auth.service";
 })
 export class LoginPageComponent implements OnInit {
   loginForm: FormGroup;
-
+  loginAttempt= 0;
   constructor(private _authservice: AuthService, private router: Router) {}
 
   ngOnInit() {
@@ -20,7 +20,13 @@ export class LoginPageComponent implements OnInit {
       userPass: new FormControl("", { validators: [Validators.required] })
     });
   }
+
+  forgetPassword(){
+
+  }
+
   onSubmit() {
+    this.loginAttempt++
     this._authservice.loginMongoServer({
       email: this.loginForm.value.emailId,
       password: this.loginForm.value.userPass
