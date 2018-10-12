@@ -127,7 +127,7 @@ app.post("/forgetPassword", (req, res)=>{
     {
       email: req.body.email
     },
-    function(err, user) {
+    (err, user) =>{
       if (err) {
         return res.status(500).json({
           title: "An error occured",
@@ -164,12 +164,12 @@ app.post("/forgetPassword", (req, res)=>{
           from: 'vindevp@gmail.com',
           to: 'vinodgchandaliya@gmail.com',
           subject: 'hello',
-          html: 'hello world!'
+          html: `http://localhost:4200/newpass?token=${token}`
         }
-      transporter.sendMail(mailOptions,(err, info)=>{
+     return transporter.sendMail(mailOptions,(err, info)=>{
         if (err) {
           console.log('err sending email' + err)
-          return res.status(500).json({
+          return res.status(503).json({
             title: "An error occured",
             error: err
           });
