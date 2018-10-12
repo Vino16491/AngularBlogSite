@@ -14,6 +14,7 @@ import { dbConnect } from "./dbconnectURI.const";
 
 /** @module mongoose for db operations  */
 import mongoose = require("mongoose");
+import { resolve } from "url";
 
 /** @constant blog to save and update blogs in db using blog model  */
 const blog = require("./dbconnect");
@@ -101,6 +102,60 @@ app.post("/login", (req, res) => {
     }
   );
 });
+
+/* forget password emailwith token to reset password */
+app.post("/forgetPassword", (req, res)=>{
+  auth.findOne(
+    {
+      email: req.body.email
+    },
+    function(err, user) {
+      if (err) {
+        return res.status(500).json({
+          title: "An error occured",
+          error: err
+        });
+      }
+      if (!user) {
+        return res.status(401).json({
+          title: "Login failed",
+          error: {
+            message: "Invalid Login credentials"
+          }
+        });
+      }
+      // if (!bcrypt.compareSync(req.body.password, user.password)) {
+      //   return res.status(401).json({
+      //     title: "Login failed",
+      //     error: {
+      //       message: "Invalid Login credentials"
+      //     }
+      //   });
+      // }
+      /* Signing user cred with token */
+      var token = jwt.sign(
+        {
+          user: user
+        },
+        "secret",
+        {
+          expiresIn: 7200
+        }
+      );
+      return res.status(200).json({
+        message: "Password reset email sent to registered email id",
+        // token: token,
+        // userId: user._id
+      });
+    }
+  );
+})
+
+
+
+
+
+
 
 /* signup */
 /** @constant passRegex for validating password  */
