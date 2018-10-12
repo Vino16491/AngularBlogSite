@@ -1,10 +1,10 @@
 <div>
-  <form fxLayout="column">
+  <form fxLayout="column" [formGroup]="PassResetForm">
       <mat-form-field>
-          <input matInput placeholder="Enter your registered email" type="email">
+          <input matInput placeholder="Enter your registered email" type="email" formControlName="emailId">
           <mat-error>Email is required</mat-error>
         </mat-form-field>
-        <button mat-raised-button>submit</button>
+        <button mat-raised-button type="submit" mat-dialog-close>submit</button>
   </form>
 
 </div>
