@@ -48,6 +48,7 @@ import { Ng2IziToastModule } from "ng2-izitoast";
 import { ToastrModule } from "ngx-toastr";
 import { SharedService } from "./shared-service.service";
 import { PassresetComponent } from './auth/passreset/passreset.component';
+import { NewPasswordComponent } from './auth/new-password/new-password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,7 +64,8 @@ import { PassresetComponent } from './auth/passreset/passreset.component';
     WelcomeComponent,
     SidenavComponent,
     ReadBlogComponent,
-    PassresetComponent
+    PassresetComponent,
+    NewPasswordComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,7 @@ import { SignuppageComponent } from "./auth/signuppage/signuppage.component";
 import { AddStoryComponent } from "./blogs/add-story/add-story.component";
 import { AuthGuard } from "./auth/auth.guard";
 import { ReadBlogComponent } from "./blogs/read-blog/read-blog.component";
+import { NewPasswordComponent } from "./auth/new-password/new-password.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/blogs", pathMatch: "full" },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: "signup", component: SignuppageComponent },
   { path: "story", component: AddStoryComponent },
   { path: "readblog", component: ReadBlogComponent },
-  { path: "**", component: PageNotFoundComponent }
+  { path: "**", component: PageNotFoundComponent },
+  {path:'setpassword', component: NewPasswordComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({
