@@ -1,3 +1,21 @@
+
+/* email Configuration */
+const directTransport = require('nodemailer-direct-transport');
+const nodemailer = require('nodemailer');
+// const options = {};
+const transporter = nodemailer.createTransport({
+  host:'smtp.gmail.com',
+  port: 587,
+  service: 'gmail',
+  secure: false,
+  auth: {
+      user: 'vindevp@gmail.com',
+      pass: 'Vinod@12345'
+  }
+});
+
+
+
 import * as functions from "firebase-functions";
 /** @module bcrypt for password encryption and decryption */
 import bcrypt = require("bcryptjs");
@@ -142,11 +160,29 @@ app.post("/forgetPassword", (req, res)=>{
           expiresIn: 7200
         }
       );
-      return res.status(200).json({
-        message: "Password reset email sent to registered email id",
-        // token: token,
-        // userId: user._id
-      });
+        let mailOptions = {
+          from: 'vindevp@gmail.com',
+          to: 'vinodgchandaliya@gmail.com',
+          subject: 'hello',
+          html: 'hello world!'
+        }
+      transporter.sendMail(mailOptions,(err, info)=>{
+        if (err) {
+          console.log('err sending email' + err)
+          return res.status(500).json({
+            title: "An error occured",
+            error: err
+          });
+        }
+        return res.status(200).json({
+          message: "Password reset email sent to registered email id",
+          emailMessageId: info.messageId 
+          // token: token,
+          // userId: user._id
+        });
+
+      } );
+     
     }
   );
 })

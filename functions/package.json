@@ -20,7 +20,10 @@
     "firebase-functions": "^2.0.3",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.2.13",
-    "mongoose-unique-validator": "^2.0.2"
+    "mongoose-unique-validator": "^2.0.2",
+    "nodemailer": "^4.6.8",
+    "nodemailer-direct-transport": "^3.3.2",
+    "nodemailer-express-handlebars": "^3.0.0"
   },
   "devDependencies": {
     "tslint": "~5.8.0",
