@@ -25,7 +25,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   forgetPassword():void{
-    const passResetDialog = this.dialog.open(PassresetComponent,{width:'70vw'});
+    const passResetDialog = this.dialog.open(PassresetComponent);
     passResetDialog.afterClosed().subscribe(result=>{
       console.log(result);
       this._authservice.passresetMongoServer(result)
