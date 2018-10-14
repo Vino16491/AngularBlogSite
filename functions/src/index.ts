@@ -164,7 +164,7 @@ app.post("/forgetPassword", (req, res)=>{
           from: 'vindevp@gmail.com',
           to: 'vinodgchandaliya@gmail.com',
           subject: 'hello',
-          html: `http://localhost:4200/newpass?token=${token}`
+          html: `http://localhost:4200/setpassword/${token}`
         }
      return transporter.sendMail(mailOptions,(err, info)=>{
         if (err) {

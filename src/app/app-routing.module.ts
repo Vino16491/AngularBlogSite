@@ -16,8 +16,13 @@ const routes: Routes = [
   { path: "signup", component: SignuppageComponent },
   { path: "story", component: AddStoryComponent },
   { path: "readblog", component: ReadBlogComponent },
-  { path: "**", component: PageNotFoundComponent },
-  {path:'setpassword', component: NewPasswordComponent, canActivate:[AuthGuard]}
+  { path: "setpassword/:token", component: NewPasswordComponent },
+
+
+
+  /* All new routes above this ^^ */
+  { path: "**", component: PageNotFoundComponent }
+  
 ];
 
 @NgModule({
