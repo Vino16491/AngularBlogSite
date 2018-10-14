@@ -102,6 +102,7 @@ export class AuthService {
     );
   }
 
+  /* change user password  */
   newPasswordSet(password, token) {
     const body = {
       token: token,
@@ -111,10 +112,12 @@ export class AuthService {
     this.cloudApiPOST(body, "setPassword").subscribe(
       success => {
         if (success) {
-          return this.toastr.showSuccess(
+          this.toastr.showSuccess(
             "Password Update Successful",
             "please login with new password"
           );
+
+          return this.router.navigate(["/blogs"]);
         }
       },
       error => {

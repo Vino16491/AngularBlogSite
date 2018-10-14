@@ -120,21 +120,35 @@ app.post("/login", (req, res) => {
 
 /* reset password with token */
 
-app.use("/setPassword", (req, res, next) => {
-  console.log("use SetPass " + (req.body));
-  jwt.verify(req.body.token, "secretPasswordRest", function(err, decoded) {
+// app.use("/setPassword", (req, res, next) => {
+//   console.log("use SetPass " + (req.body.token));
+//   jwt.verify(req.body.token, "secretPasswordRest", function(err, decoded) {
+//     if (err) {
+//       return res.status(401).json({
+//         title: "Not Authenticated",
+//         error: err
+//       });
+//     }
+//     return next();
+//   });
+// });
+
+app.post("/setPassword", (req, res) => {
+  console.log("setPassword");
+
+  const decodedToken = jwt.verify(req.body.token, "secretPasswordRest", function(err, decoded) {
     if (err) {
       return res.status(401).json({
         title: "Not Authenticated",
         error: err
       });
     }
-    return next();
+    return decoded;
   });
-});
 
-app.post("/setPassword", (req, res) => {
-  console.log("setPassword");
+  console.log(JSON.stringify(decodedToken));
+
+  
   if (!passRegex.test(req.body.password)) {
     return res.status(400).json({
       title: "An error occured",
@@ -146,10 +160,10 @@ app.post("/setPassword", (req, res) => {
       shortMsg: "Password is not valid"
     });
   }
-  const decodeToken = jwt.decode(req.body.token);
-  console.log(JSON.stringify(decodeToken));
+  // const decodeToken = jwt.decode(req.body.token);
+  // console.log(JSON.stringify(decodeToken));
   return auth.findByIdAndUpdate(
-    decodeToken.user,
+    decodedToken.user,
     { password: bcrypt.hashSync(req.body.password, 10) },
     (err, user) => {
       if (err) {
