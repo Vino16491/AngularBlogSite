@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-new-password',
   templateUrl: './new-password.component.html',
@@ -7,9 +8,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class NewPasswordComponent implements OnInit {
   newPasswordForm: FormGroup;
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.params.subscribe(params=>console.log(params.token));
     this.newPasswordForm = new FormGroup({
       newPassword: new FormControl("", {
         validators: [Validators.required, Validators.email]
@@ -20,6 +22,10 @@ export class NewPasswordComponent implements OnInit {
       }),
     
     });
+  }
+
+  submit(){
+    console.log(this.newPasswordForm.value.newPassword);
   }
 
 }

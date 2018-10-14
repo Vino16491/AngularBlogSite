@@ -1,20 +1,17 @@
-
 /* email Configuration */
-const directTransport = require('nodemailer-direct-transport');
-const nodemailer = require('nodemailer');
+const directTransport = require("nodemailer-direct-transport");
+const nodemailer = require("nodemailer");
 // const options = {};
 const transporter = nodemailer.createTransport({
-  host:'smtp.gmail.com',
+  host: "smtp.gmail.com",
   port: 587,
-  service: 'gmail',
+  service: "gmail",
   secure: false,
   auth: {
-      user: 'vindevp@gmail.com',
-      pass: 'Vinod@12345'
+    user: "vindevp@gmail.com",
+    pass: "Vinod@12345"
   }
 });
-
-
 
 import * as functions from "firebase-functions";
 /** @module bcrypt for password encryption and decryption */
@@ -121,13 +118,34 @@ app.post("/login", (req, res) => {
   );
 });
 
-/* forget password emailwith token to reset password */
-app.post("/forgetPassword", (req, res)=>{
+/* reset password with token */
+app.post("/setPassword", (req, res) => {
+  jwt.verify(req.body.token, "secret", (err, decoded) => {
+    if (err) {
+      return res.status(401).json({
+        title: "Not Authenticated",
+        error: err
+      });
+    }
+
+    const decodeToken = jwt.decode(req.body.token);
+    console.log(JSON.stringify(decodeToken));
+    
+
+    return res.status(200).json({
+      message: "valid user",
+      tokenData: JSON.stringify(decodeToken)
+    });
+  });
+});
+
+/* forget password email with token to reset password */
+app.post("/forgetPassword", (req, res) => {
   auth.findOne(
     {
       email: req.body.email
     },
-    (err, user) =>{
+    (err, user) => {
       if (err) {
         return res.status(500).json({
           title: "An error occured",
@@ -142,14 +160,6 @@ app.post("/forgetPassword", (req, res)=>{
           }
         });
       }
-      // if (!bcrypt.compareSync(req.body.password, user.password)) {
-      //   return res.status(401).json({
-      //     title: "Login failed",
-      //     error: {
-      //       message: "Invalid Login credentials"
-      //     }
-      //   });
-      // }
       /* Signing user cred with token */
       var token = jwt.sign(
         {
@@ -160,15 +170,15 @@ app.post("/forgetPassword", (req, res)=>{
           expiresIn: 7200
         }
       );
-        let mailOptions = {
-          from: 'vindevp@gmail.com',
-          to: 'vinodgchandaliya@gmail.com',
-          subject: 'hello',
-          html: `http://localhost:4200/setpassword/${token}`
-        }
-     return transporter.sendMail(mailOptions,(err, info)=>{
+      let mailOptions = {
+        from: "vindevp@gmail.com",
+        to: "vinodgchandaliya@gmail.com",
+        subject: "hello",
+        html: `http://localhost:4200/setpassword/${token}`
+      };
+      return transporter.sendMail(mailOptions, (err, info) => {
         if (err) {
-          console.log('err sending email' + err)
+          console.log("err sending email" + err);
           return res.status(503).json({
             title: "An error occured",
             error: err
@@ -176,22 +186,14 @@ app.post("/forgetPassword", (req, res)=>{
         }
         return res.status(200).json({
           message: "Password reset email sent to registered email id",
-          emailMessageId: info.messageId 
+          emailMessageId: info.messageId
           // token: token,
           // userId: user._id
         });
-
-      } );
-     
+      });
     }
   );
-})
-
-
-
-
-
-
+});
 
 /* signup */
 /** @constant passRegex for validating password  */
@@ -199,9 +201,8 @@ const passRegex = new RegExp(
   "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
 );
 app.post("/signup", (req, res) => {
-console.log('signup' + req.body.password)
+  console.log("signup" + req.body.password);
   if (!passRegex.test(req.body.password)) {
-
     return res.status(400).json({
       title: "An error occured",
       message: `Password must contain 
@@ -209,7 +210,7 @@ console.log('signup' + req.body.password)
         lower case english letter, 
         one digit, one special character and 
         minimum 8 character long `,
-      shortMsg:'Password is not valid'
+      shortMsg: "Password is not valid"
     });
   }
   const user = new auth({
@@ -233,7 +234,6 @@ console.log('signup' + req.body.password)
     });
   });
 });
-
 
 /* Blog API */
 /** Get Blogs  */
