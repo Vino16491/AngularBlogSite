@@ -121,7 +121,8 @@ app.post("/login", (req, res) => {
 /* reset password with token */
 
 app.use("/setPassword", (req, res, next) => {
-  jwt.verify(req.body.token, "secret", function(err, decoded) {
+  console.log("use SetPass " + (req.body));
+  jwt.verify(req.body.token, "secretPasswordRest", function(err, decoded) {
     if (err) {
       return res.status(401).json({
         title: "Not Authenticated",
@@ -133,6 +134,7 @@ app.use("/setPassword", (req, res, next) => {
 });
 
 app.post("/setPassword", (req, res) => {
+  console.log("setPassword");
   if (!passRegex.test(req.body.password)) {
     return res.status(400).json({
       title: "An error occured",
@@ -145,39 +147,30 @@ app.post("/setPassword", (req, res) => {
     });
   }
   const decodeToken = jwt.decode(req.body.token);
-
+  console.log(JSON.stringify(decodeToken));
   return auth.findByIdAndUpdate(
-    decodeToken.user._id,
+    decodeToken.user,
     { password: bcrypt.hashSync(req.body.password, 10) },
     (err, user) => {
       if (err) {
         return res.status(401).json({
-          title: "Please contact administrator",
-          error: "user not found in database"
+          title: "contact administrator",
+          error: err
         });
       }
       if (!user) {
         return res.status(401).json({
-          title: "Login failed",
-          error: {
-            message: "Invalid Login credentials"
-          }
+          title: "Server Error",
+          error: "Please contact administrator"
         });
       }
 
       return res.status(200).json({
         title: "Password updated successfully",
-        message: "Please login with new password",
+        message: "Please login with new password"
       });
     }
   );
-
-  // console.log(JSON.stringify(decodeToken.user._id));
-
-  // return res.status(200).json({
-  //   message: "valid user",
-  //   tokenData: JSON.stringify(decodeToken.user._id)
-  // });
 });
 
 /* forget password email with token to reset password */

@@ -57,6 +57,7 @@ export class AuthService {
   }
 
   cloudApiPOST(body, apiname) {
+    console.log(JSON.stringify(body));
     const headers = new HttpHeaders({ "Content-type": "application/json" });
     const url = `http://localhost:5000/blog-9e6be/us-central1/blogapi/${apiname}`;
     return this.http.post(url, body, { headers });
@@ -86,13 +87,42 @@ export class AuthService {
     );
   }
 
-  passresetMongoServer(email){
-    const body={email:email};
-    this.cloudApiPOST(body, "forgetPassword").subscribe(r=>{
-      this.toastr.showSuccess('reset email', 'password reset email sent to your registered id successfully')
-    }, err=>{
-      this.toastr.showError('server error', 'Please contact administrator');
-    })
+  passresetMongoServer(email) {
+    const body = { email: email };
+    this.cloudApiPOST(body, "forgetPassword").subscribe(
+      r => {
+        this.toastr.showSuccess(
+          "reset email",
+          "password reset email sent to your registered id successfully"
+        );
+      },
+      err => {
+        this.toastr.showError("server error", "Please contact administrator");
+      }
+    );
+  }
+
+  newPasswordSet(password, token) {
+    const body = {
+      token: token,
+      password: password
+    };
+    console.log(JSON.stringify(body));
+    this.cloudApiPOST(body, "setPassword").subscribe(
+      success => {
+        if (success) {
+          return this.toastr.showSuccess(
+            "Password Update Successful",
+            "please login with new password"
+          );
+        }
+      },
+      error => {
+        if (error) {
+          return this.toastr.showError("contact administrator");
+        }
+      }
+    );
   }
 
   signupMongoServer(firstname, mobileNumber, email, password) {
