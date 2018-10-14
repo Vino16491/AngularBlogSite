@@ -119,24 +119,65 @@ app.post("/login", (req, res) => {
 });
 
 /* reset password with token */
-app.post("/setPassword", (req, res) => {
-  jwt.verify(req.body.token, "secret", (err, decoded) => {
+
+app.use("/setPassword", (req, res, next) => {
+  jwt.verify(req.body.token, "secret", function(err, decoded) {
     if (err) {
       return res.status(401).json({
         title: "Not Authenticated",
         error: err
       });
     }
-
-    const decodeToken = jwt.decode(req.body.token);
-    console.log(JSON.stringify(decodeToken));
-    
-
-    return res.status(200).json({
-      message: "valid user",
-      tokenData: JSON.stringify(decodeToken)
-    });
+    return next();
   });
+});
+
+app.post("/setPassword", (req, res) => {
+  if (!passRegex.test(req.body.password)) {
+    return res.status(400).json({
+      title: "An error occured",
+      message: `Password must contain 
+        one uppercase english letter, 
+        lower case english letter, 
+        one digit, one special character and 
+        minimum 8 character long `,
+      shortMsg: "Password is not valid"
+    });
+  }
+  const decodeToken = jwt.decode(req.body.token);
+
+  return auth.findByIdAndUpdate(
+    decodeToken.user._id,
+    { password: bcrypt.hashSync(req.body.password, 10) },
+    (err, user) => {
+      if (err) {
+        return res.status(401).json({
+          title: "Please contact administrator",
+          error: "user not found in database"
+        });
+      }
+      if (!user) {
+        return res.status(401).json({
+          title: "Login failed",
+          error: {
+            message: "Invalid Login credentials"
+          }
+        });
+      }
+
+      return res.status(200).json({
+        title: "Password updated successfully",
+        message: "Please login with new password",
+      });
+    }
+  );
+
+  // console.log(JSON.stringify(decodeToken.user._id));
+
+  // return res.status(200).json({
+  //   message: "valid user",
+  //   tokenData: JSON.stringify(decodeToken.user._id)
+  // });
 });
 
 /* forget password email with token to reset password */
@@ -163,9 +204,9 @@ app.post("/forgetPassword", (req, res) => {
       /* Signing user cred with token */
       var token = jwt.sign(
         {
-          user: user
+          user: user._id
         },
-        "secret",
+        "secretPasswordRest",
         {
           expiresIn: 7200
         }
