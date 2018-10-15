@@ -118,37 +118,26 @@ app.post("/login", (req, res) => {
   );
 });
 
-/* reset password with token */
-
-// app.use("/setPassword", (req, res, next) => {
-//   console.log("use SetPass " + (req.body.token));
-//   jwt.verify(req.body.token, "secretPasswordRest", function(err, decoded) {
-//     if (err) {
-//       return res.status(401).json({
-//         title: "Not Authenticated",
-//         error: err
-//       });
-//     }
-//     return next();
-//   });
-// });
-
+/* set new password */
 app.post("/setPassword", (req, res) => {
   console.log("setPassword");
 
-  const decodedToken = jwt.verify(req.body.token, "secretPasswordRest", function(err, decoded) {
-    if (err) {
-      return res.status(401).json({
-        title: "Not Authenticated",
-        error: err
-      });
+  const decodedToken = jwt.verify(
+    req.body.token,
+    "secretPasswordRest",
+    function(err, decoded) {
+      if (err) {
+        return res.status(401).json({
+          title: "Not Authenticated",
+          error: err
+        });
+      }
+      return decoded;
     }
-    return decoded;
-  });
+  );
 
   console.log(JSON.stringify(decodedToken));
 
-  
   if (!passRegex.test(req.body.password)) {
     return res.status(400).json({
       title: "An error occured",
@@ -160,8 +149,7 @@ app.post("/setPassword", (req, res) => {
       shortMsg: "Password is not valid"
     });
   }
-  // const decodeToken = jwt.decode(req.body.token);
-  // console.log(JSON.stringify(decodeToken));
+
   return auth.findByIdAndUpdate(
     decodedToken.user,
     { password: bcrypt.hashSync(req.body.password, 10) },
@@ -178,10 +166,34 @@ app.post("/setPassword", (req, res) => {
           error: "Please contact administrator"
         });
       }
+      let date = new Date();
+      let mailOptions = {
+        from: "vindevp@gmail.com",
+        to: "vinodgchandaliya@gmail.com",
+        subject: "Password reset successful",
+        html: `Hi ${user.email},
+          <p>Your password has been changed</p>
+          <p>This is a confirmation that your password \n was changed at ${date}</p>
+          <p>Did'nt change your password? Contact <a href="mailto:vindevp@gmail.com">Admin Support</a> so that we can make sure no one else is trying to access your account</p>
 
-      return res.status(200).json({
-        title: "Password updated successfully",
-        message: "Please login with new password"
+
+          <h3>Thanks,</h3>
+          <h3>Yours, \n Vinod</h3>
+        
+        `
+      };
+      return transporter.sendMail(mailOptions, (err, info) => {
+        if (err) {
+          // console.log("err sending email" + err);
+          return res.status(503).json({
+            title: "An error occured",
+            error: err
+          });
+        }
+        return res.status(200).json({
+          title: "Password updated successfully",
+          message: "Please login with new password"
+        });
       });
     }
   );
@@ -221,7 +233,7 @@ app.post("/forgetPassword", (req, res) => {
       let mailOptions = {
         from: "vindevp@gmail.com",
         to: "vinodgchandaliya@gmail.com",
-        subject: "hello",
+        subject: "password reset request",
         html: `http://localhost:4200/setpassword/${token}`
       };
       return transporter.sendMail(mailOptions, (err, info) => {
