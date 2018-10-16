@@ -7,13 +7,11 @@
 
     <mat-form-field>
       <input matInput placeholder="Password" type="password" formControlName="userPass">
-      <mat-error>password is
-        <strong>required</strong>
-      </mat-error>
+      <mat-error>password is<strong>required</strong></mat-error>
     </mat-form-field>
 
-    <button mat-button color="primary" type="submit" *ngIf="!(loginForm.invalid)">Submit</button>
-    <mat-progress-spinner color="primary" mode="indeterminate"></mat-progress-spinner>
-    <button mat-button color="primary" (click)="forgetPassword()" *ngIf="loginAttempt>0" type="button">Forget Password</button>
+    <button  *ngIf="!(isLoading$ | async)" mat-button color="primary" type="submit" [disabled]="(loginForm.invalid)">Submit</button>
+    <mat-progress-spinner color="primary" mode="indeterminate" *ngIf="isLoading$ | async" diameter="40" strokeWidth="20" ></mat-progress-spinner>
+    <button mat-button color="primary" (click)="forgetPassword()" *ngIf="(loginAttempt>0) && !(isLoading$ | async)" type="button">Forget Password</button>
   </form>
 </div>

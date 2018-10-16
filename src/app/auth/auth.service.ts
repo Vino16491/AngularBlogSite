@@ -10,6 +10,7 @@ import { Observable } from "rxjs";
 import { Store } from "@ngrx/store";
 import * as fromRoot from "../app.reducer";
 import * as Auth from "./auth.actions";
+import * as UI from "../sharedUI/ui.action";
 
 /* Firebase */
 import { AngularFireAuth } from "@angular/fire/auth";
@@ -72,16 +73,19 @@ export class AuthService {
   }
 
   loginMongoServer(authdata: AuthData) {
+    this.store.dispatch(new UI.StartLoading());
     let body = authdata;
     this.cloudApiPOST(body, "login").subscribe(
       (l: successResponse) => {
         if (l.token) {
+          this.store.dispatch(new UI.StopLoading());
           this.toastr.showSuccess("success", "user logged in successfully");
           this.store.dispatch(new Auth.SetAuthenticated());
           return this.router.navigate(["/blogs"]);
         }
       },
       err => {
+        this.store.dispatch(new UI.StopLoading());
         this.toastr.showError("error", "User Id or password is incorrect");
       }
     );

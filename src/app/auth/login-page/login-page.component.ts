@@ -15,6 +15,8 @@ import * as fromRoot from "../../app.reducer";
 export class LoginPageComponent implements OnInit {
   loginForm: FormGroup;
   loginAttempt = 0;
+  isLoading$: Observable<boolean>;
+
   constructor(
     private _authservice: AuthService,
     private router: Router,
@@ -23,6 +25,7 @@ export class LoginPageComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.isLoading$ = this.store.select(fromRoot.getIsLoading);
     this.loginForm = new FormGroup({
       emailId: new FormControl("", {
         validators: [Validators.required, Validators.email]
