@@ -161,6 +161,7 @@ export class AuthService {
   }
 
   logout() {
-    this.afAuth.auth.signOut();
+    this.store.dispatch(new Auth.SetUnAuthenticated());
+    this.router.navigate(["/blogs"]);
   }
 }
