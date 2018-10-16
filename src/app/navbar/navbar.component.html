@@ -30,7 +30,7 @@
 
 </mat-toolbar>
 
-<mat-menu #personMenu="matMenu">
+<mat-menu #personMenu="matMenu" yPosition="below" xPosition="before">
   <a routerLink="/login" mat-menu-item routerLinkActive="active" *ngIf="!(isAuth$ | async)">Login</a>
   <a routerLink="/signup" mat-menu-item routerLinkActive="active" *ngIf="!(isAuth$ | async)">Sign Up</a>
   <a routerLink="/login" mat-menu-item routerLinkActive="active" *ngIf="(isAuth$ | async)" (click)='logout()'>Logout</a>
@@ -39,7 +39,6 @@
   <button routerLink="/story" mat-menu-item>Anonymous Story</button>
 </mat-menu>
 
-<mat-menu #notifyMenu="matMenu">
-  <p>Hi There is a message for you
-    <p>
+<mat-menu #notifyMenu="matMenu" yPosition="below" xPosition="before">
+  <p color="primary">Hi There is a message for you<p>
 </mat-menu>

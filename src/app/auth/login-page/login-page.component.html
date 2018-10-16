@@ -13,6 +13,7 @@
     </mat-form-field>
 
     <button mat-button color="primary" type="submit" *ngIf="!(loginForm.invalid)">Submit</button>
+    <mat-progress-spinner color="primary" mode="indeterminate"></mat-progress-spinner>
     <button mat-button color="primary" (click)="forgetPassword()" *ngIf="loginAttempt>0" type="button">Forget Password</button>
   </form>
 </div>
