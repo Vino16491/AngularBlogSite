@@ -1,22 +1,31 @@
 <mat-nav-list>
-  <a mat-list-item (click)="onClose()" class="nav-list">
-    <button mat-icon-button [matMenuTriggerFor]="sideNavPersonMenu">
-      <mat-icon>person</mat-icon>
-      <span style="margin-left: 10px;">Profile</span>
-    </button>
+  <a mat-list-item class="nav-list" [matMenuTriggerFor]="sideNavPersonMenu">
+    <mat-icon>person</mat-icon>
+    <span style="margin-left: 10px;">Profile</span>
   </a>
-  <a mat-list-item (click)="onClose()" class="nav-list">
+  <a mat-list-item class="nav-list">
     <mat-icon>notifications</mat-icon>
     <span style="margin-left: 10px;">Message</span>
   </a>
-
+  <a mat-list-item class="nav-list">
+      <mat-icon>notifications</mat-icon>
+      <span style="margin-left: 10px;">Message</span>
+    </a>
   <!-- <mat-chip-list *ngFor="let chip of chips, i as index" aria-orientation="vertical">
     <mat-chip (click)="onChipSelect(chip, i)">{{chip}}</mat-chip>
   </mat-chip-list> -->
 </mat-nav-list>
+
 <mat-menu #sideNavPersonMenu="matMenu">
-  <a routerLink="/login" mat-menu-item routerLinkActive="active">Login</a>
-  <a routerLink="/signup" mat-menu-item routerLinkActive="active">Sign Up</a>
+  <button mat-menu-item [matMenuTriggerFor]="profileMenu">
+    <mat-icon>person</mat-icon>
+    <span>Profile</span>
+  </button>
+</mat-menu>
+
+<mat-menu #profileMenu="matMenu">
+  <a routerLink="/login" mat-menu-item routerLinkActive="active" (click)="onClose()">Login</a>
+  <a routerLink="/signup" mat-menu-item routerLinkActive="active" (click)="onClose()">Sign Up</a>
   <a routerLink="/login" mat-menu-item routerLinkActive="active" (click)='logout()'>Logout</a>
   <!-- <button mat-menu-item>Sign Up</button> -->
   <button *ngIf="isAuth$ | async" routerLink="/story" mat-menu-item>Your Story</button>
