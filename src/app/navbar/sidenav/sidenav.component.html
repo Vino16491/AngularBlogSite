@@ -3,19 +3,13 @@
     <mat-icon>person</mat-icon>
     <span style="margin-left: 10px;">Profile</span>
   </a>
-  <a mat-list-item class="nav-list">
-    <mat-icon>notifications</mat-icon>
-    <span style="margin-left: 10px;">Message</span>
+  <a mat-list-item class="nav-list" routerLink="/blogs" (click)="onClose()">
+    <mat-icon>home</mat-icon>
+    <span style="margin-left: 10px;">Home</span>
   </a>
-  <a mat-list-item class="nav-list">
-      <mat-icon>notifications</mat-icon>
-      <span style="margin-left: 10px;">Message</span>
-    </a>
-  <!-- <mat-chip-list *ngFor="let chip of chips, i as index" aria-orientation="vertical">
-    <mat-chip (click)="onChipSelect(chip, i)">{{chip}}</mat-chip>
-  </mat-chip-list> -->
 </mat-nav-list>
 
+<!-- menu for profile -->
 <mat-menu #sideNavPersonMenu="matMenu">
   <button mat-menu-item [matMenuTriggerFor]="profileMenu">
     <mat-icon>person</mat-icon>
