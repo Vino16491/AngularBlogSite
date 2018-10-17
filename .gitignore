@@ -47,3 +47,5 @@ functions/lib
 functions/src/dbconnectURI.const.ts
 src/environments/environment.ts
 src/environments/environment.prod.ts
+functions/src/pexelsAPI.ts
+

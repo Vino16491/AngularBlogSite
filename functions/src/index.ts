@@ -13,6 +13,15 @@ const transporter = nodemailer.createTransport({
   }
 });
 
+/* Photo search from pexels */
+import {PEXELAPIKEY} from "./pexelsAPI"
+const PexelsAPI = require('pexels-api-wrapper');
+ 
+//Create Client instance by passing in API key
+var pexelsClient = new PexelsAPI(PEXELAPIKEY);
+ 
+
+
 import * as functions from "firebase-functions";
 /** @module bcrypt for password encryption and decryption */
 import bcrypt = require("bcryptjs");
@@ -295,6 +304,23 @@ app.post("/signup", (req, res) => {
   });
 });
 
+app.get('/photo', (req, res)=>{
+  pexelsClient.search("food", 10, 1)
+    .then(function(result){
+        console.log(result);
+        return res.status(200).json({
+          title:'image result',
+          imageResult:result
+        })
+    }).
+    catch(function(e){
+        console.log(e);
+        return res.status(500).json({
+          title:'error',
+          error:e
+        })
+    });
+})
 /* Blog API */
 /** Get Blogs  */
 app.get("/blog", (req, res) => {
