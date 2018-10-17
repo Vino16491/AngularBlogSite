@@ -115,7 +115,9 @@ export class AddStoryComponent implements OnInit {
       );
   }
 
-  addImage(photoid){
-    return this.storyImage = photoid;
+  addImage(photoid, photourl){
+    // return this.storyImage = {id:photoid, url: photourl};
+    return this.storyImage = photourl;
+
   }
 }
