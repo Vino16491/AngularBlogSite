@@ -305,7 +305,8 @@ app.post("/signup", (req, res) => {
 });
 
 app.get('/photo', (req, res)=>{
-  pexelsClient.search("food", 10, 1)
+  console.log(req.query.image);
+  pexelsClient.search(req.query.image, 1, 1)
     .then(function(result){
         console.log(result);
         return res.status(200).json({
