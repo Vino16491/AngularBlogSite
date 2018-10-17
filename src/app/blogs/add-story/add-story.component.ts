@@ -9,6 +9,8 @@ import { SharedService } from "../../shared-service.service";
   styleUrls: ["./add-story.component.css"]
 })
 export class AddStoryComponent implements OnInit {
+  photo = [];
+  storyImage;
   public userStory;
   public userStoryTitle;
   author;
@@ -22,7 +24,7 @@ export class AddStoryComponent implements OnInit {
     defaultFontSize: "6",
     enableToolbar: true,
     showToolbar: true,
-    // uploadUrl: 'v1/images', // if needed
+    // uploadUrl: '', // if needed
     customClasses: [
       // optional
       {
@@ -49,7 +51,9 @@ export class AddStoryComponent implements OnInit {
     private toast: SharedService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.searchImage("beauty");
+  }
 
   saveStory() {
     if (this.userStoryTitle) {
@@ -62,7 +66,8 @@ export class AddStoryComponent implements OnInit {
           let userFullStory = {
             title: this.userStoryTitle,
             story: this.userStory,
-            author: this.author ? this.author : "Anonymous"
+            author: this.author ? this.author : "Anonymous",
+            imageUrl:this.storyImage?this.storyImage:null
           };
           this.blogService.addUserStory(userFullStory);
           this.userStory = null;
@@ -85,5 +90,32 @@ export class AddStoryComponent implements OnInit {
         "Please provide some title to your story"
       );
     }
+  }
+
+  searchImage(searchString) {
+    searchString = "beauty";
+    this.blogService
+      .searchPhoto(searchString)
+      .subscribe(
+        (photo: {
+          title;
+          imageResult: {
+            photos: [{ id:string; src: { medium?: string; small?: string } }];
+          };
+        }) => {
+          photo.imageResult.photos.forEach(p => {
+            this.photo.push({
+              id:p.id,
+              url: p.src.medium ? p.src.medium : p.src.small
+            });
+          });
+
+          console.log(JSON.stringify(this.photo))
+        }
+      );
+  }
+
+  addImage(photoid){
+    return this.storyImage = photoid;
   }
 }

@@ -306,16 +306,16 @@ app.post("/signup", (req, res) => {
 
 app.get('/photo', (req, res)=>{
   console.log(req.query.image);
-  pexelsClient.search(req.query.image, 5, 1)
+  pexelsClient.search(req.query.image, 2, 1)
     .then(function(result){
-        console.log(result);
+        // console.log(result);
         return res.status(200).json({
           title:'image result',
           imageResult:result
         })
     }).
     catch(function(e){
-        console.log(e);
+        // console.log(e);
         return res.status(500).json({
           title:'error',
           error:e

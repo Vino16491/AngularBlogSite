@@ -8,5 +8,11 @@
   <div class="story_action-btn">
     <button mat-button color="primary" (click)="saveStory()">Save</button>
   </div>
-
+<div *ngIf="photo.length>0" fxLayout="row" fxLayoutGap="5px">
+  <div *ngFor="let pic of photo; index as p">
+      <img src="{{pic.url}}" width="300" height="300" (click)="addImage(pic.id)">
+  </div>
+  
 </div>
+</div>
+
