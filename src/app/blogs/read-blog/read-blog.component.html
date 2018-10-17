@@ -2,7 +2,9 @@
   <div class="story-title">
     <h1>{{readStory.title?readStory.title:""}}</h1>
   </div>
-  
+  <div *ngIf="readStory.imageUrl" fxLayoutAlign="center center">
+    <img src="{{readStory.imageUrl}}" width="450" height="300">
+  </div>
   <div class="story-content">
     <p [innerHTML]='readStory.story?readStory.story:""'></p>
   </div>
