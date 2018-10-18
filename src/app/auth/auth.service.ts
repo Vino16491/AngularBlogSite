@@ -13,7 +13,7 @@ import * as Auth from "./auth.actions";
 import * as UI from "../sharedUI/ui.action";
 
 /* Firebase */
-import { AngularFireAuth } from "@angular/fire/auth";
+// import { AngularFireAuth } from "@angular/fire/auth";
 import { SharedService } from "../shared-service.service";
 import {
   HttpHeaders,
@@ -39,23 +39,23 @@ export interface errResponse {
 export class AuthService {
   constructor(
     private router: Router,
-    private afAuth: AngularFireAuth,
+    // private afAuth: AngularFireAuth,
     private store: Store<fromRoot.State>,
     private toastr: SharedService,
     private http: HttpClient
   ) {}
 
-  initAuthListener() {
-    this.afAuth.authState.subscribe(user => {
-      if (user) {
-        this.store.dispatch(new Auth.SetAuthenticated());
-        // this.router.navigate(["/blogs"]);
-      } else {
-        this.store.dispatch(new Auth.SetUnAuthenticated());
-        // this.router.navigate(["/login"]);
-      }
-    });
-  }
+  // initAuthListener() {
+  //   this.afAuth.authState.subscribe(user => {
+  //     if (user) {
+  //       this.store.dispatch(new Auth.SetAuthenticated());
+  //       // this.router.navigate(["/blogs"]);
+  //     } else {
+  //       this.store.dispatch(new Auth.SetUnAuthenticated());
+  //       // this.router.navigate(["/login"]);
+  //     }
+  //   });
+  // }
 
   cloudApiPOST(body, apiname) {
     console.log(JSON.stringify(body));
@@ -63,14 +63,14 @@ export class AuthService {
     const url = `http://localhost:5000/blog-9e6be/us-central1/blogapi/${apiname}`;
     return this.http.post(url, body, { headers });
   }
-  registeredUser(authData: AuthData) {
-    this.afAuth.auth
-      .createUserWithEmailAndPassword(authData.email, authData.password)
-      .then(result => {
-        console.log("success");
-      })
-      .catch(err => this.toastr.showWarn("Registration err", err.message));
-  }
+  // registeredUser(authData: AuthData) {
+  //   this.afAuth.auth
+  //     .createUserWithEmailAndPassword(authData.email, authData.password)
+  //     .then(result => {
+  //       console.log("success");
+  //     })
+  //     .catch(err => this.toastr.showWarn("Registration err", err.message));
+  // }
 
   loginMongoServer(authdata: AuthData) {
     this.store.dispatch(new UI.StartLoading());
@@ -151,14 +151,14 @@ export class AuthService {
     );
   }
 
-  login(authData: AuthData) {
-    this.afAuth.auth
-      .signInWithEmailAndPassword(authData.email, authData.password)
-      .then(result => {
-        console.log("success");
-      })
-      .catch(err => this.toastr.showWarn("Login Err", err.message));
-  }
+  // login(authData: AuthData) {
+  //   this.afAuth.auth
+  //     .signInWithEmailAndPassword(authData.email, authData.password)
+  //     .then(result => {
+  //       console.log("success");
+  //     })
+  //     .catch(err => this.toastr.showWarn("Login Err", err.message));
+  // }
 
   logout() {
     this.store.dispatch(new Auth.SetUnAuthenticated());
