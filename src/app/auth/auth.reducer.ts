@@ -8,7 +8,7 @@ import {
 
 export interface State {
   isAuthenticated: boolean;
-  authdetails?:{firstname:string; _id:string};
+  authdetails?:{_id:string; token:string;};
 }
 
 const initialState: State = {
