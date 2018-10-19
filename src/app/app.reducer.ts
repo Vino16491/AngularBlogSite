@@ -22,9 +22,12 @@ export const reducers: ActionReducerMap<State> = {
   blogs:fromBlogs.blogReducer
   
 };
-
+/** for auth status */
 export const getAuthState = createFeatureSelector<fromAuth.State>("auth");
 export const getIsAuth = createSelector(getAuthState, fromAuth.getIsAuth);
+/** for auth details  */
+export const getAuthDetailsState = createFeatureSelector<fromAuth.State>("auth");
+export const getAuthDetails = createSelector(getAuthDetailsState, fromAuth.getAuthDetails);
 
 /* For Blogs */
 export const getBlogsState = createFeatureSelector<fromBlogs.State>("blogs");
