@@ -121,7 +121,8 @@ app.post("/login", (req, res) => {
       return res.status(200).json({
         message: "Successfully logged In",
         token: token,
-        userId: user._id
+        userId: user._id,
+        name:user.firstname
       });
     }
   );
