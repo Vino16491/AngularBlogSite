@@ -32,7 +32,7 @@
 
 <mat-menu #personMenu="matMenu" yPosition="below" xPosition="before">
   <a routerLink="/login" mat-menu-item routerLinkActive="active" *ngIf="!(isAuth$ | async)">Login</a>
-  <a mat-menu-item *ngIf="(isAuth$ | async)">Hi {{user.name}}</a>
+  <a mat-menu-item *ngIf="(isAuth$ | async)">Hi {{user.name | titlecase}</a>
   <a routerLink="/signup" mat-menu-item routerLinkActive="active" *ngIf="!(isAuth$ | async)">Sign Up</a>
   <!-- <button mat-menu-item>Sign Up</button> -->
   <button *ngIf="(isAuth$ | async)" routerLink="/story" mat-menu-item>Your Story</button>
