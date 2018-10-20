@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   isAuth$: Observable<boolean>;
   userDetail$: Observable<any>;
-  
+  user;
   constructor(
     private store: Store<fromRoot.State>,
     private authService: AuthService,
@@ -35,6 +35,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.isAuth$ = this.store.select(fromRoot.getIsAuth);
     this.userDetail$ = this.store.select(fromRoot.getAuthDetails);
+    this.userDetail$.subscribe(u=>this.user = u);
     // this.bserv.userStory().pipe(take(1)).subscribe(blog=>{
     //   this.store.dispatch(new blogs.SetBlogs(blog));
     // });
