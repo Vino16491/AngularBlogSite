@@ -15,10 +15,14 @@ export class SidenavComponent implements OnInit, OnDestroy {
   
   isAuth$ : Observable<boolean>;
   chips: string[] = ["Emotions", "Feelings", "Technology", "programming"];
+  userDetail$: Observable<any>;
+  user;
   constructor(private store : Store<fromRoot.State>, private authService: AuthService) {}
 
   ngOnInit() {
     this.isAuth$ = this.store.select(fromRoot.getIsAuth)
+    this.userDetail$ = this.store.select(fromRoot.getAuthDetails);
+    this.userDetail$.subscribe(u=>this.user = u);
   }
   onChipSelect(chip, index) {
     console.log(chip + " " + index);

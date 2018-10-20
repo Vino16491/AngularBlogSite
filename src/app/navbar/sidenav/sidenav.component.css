@@ -1,11 +1,11 @@
 .nav-list {
   text-decoration: none;
-  color: black;
+  color: whitesmoke;
   margin-right: 10px;
 }
 
 .nav-list:hover,
 .nav-list:active {
   background-color: dodgerblue;
+  color: black;
 }
-

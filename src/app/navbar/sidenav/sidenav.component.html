@@ -1,4 +1,5 @@
 <mat-nav-list>
+  <a mat-menu-item *ngIf="(isAuth$ | async)">Hi {{user.name}}</a>
   <a mat-list-item class="nav-list" [matMenuTriggerFor]="sideNavPersonMenu">
     <mat-icon>person</mat-icon>
     <span style="margin-left: 10px;">Profile</span>
