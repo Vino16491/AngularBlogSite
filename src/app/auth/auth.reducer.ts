@@ -24,6 +24,7 @@ export function authReducer(state = initialState, action: AuthActions) {
       return { isAuthenticated: false };
 
     case SET_AUTHDETAILS:
+      console.log(JSON.stringify(action.payload))
       return {isAuthenticated:true, authdetails:action.payload};
 
     default: {

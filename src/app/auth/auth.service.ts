@@ -78,9 +78,11 @@ export class AuthService {
     this.cloudApiPOST(body, "login").subscribe(
       (l: successResponse) => {
         if (l.token) {
+          console.log(JSON.stringify(l));
           this.store.dispatch(new UI.StopLoading());
           this.toastr.showSuccess("success", "user logged in successfully");
           this.store.dispatch(new Auth.SetAuthenticated());
+          this.store.dispatch(new Auth.SetAuthDetails(l));
           return this.router.navigate(["/blogs"]);
         }
       },
