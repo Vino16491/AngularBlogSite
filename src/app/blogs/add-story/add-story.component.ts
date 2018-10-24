@@ -14,6 +14,7 @@ export class AddStoryComponent implements OnInit {
   public userStory;
   public userStoryTitle;
   author;
+  blogtype:string;
   /* Editor Config */
   editorConfig: AngularEditorConfig = {
     defaultFontName: "Calibri",
@@ -56,6 +57,7 @@ export class AddStoryComponent implements OnInit {
   }
 
   saveStory() {
+    console.log(this.blogtype);
     if (this.userStoryTitle) {
       if (
         this.userStory !== undefined &&
@@ -67,7 +69,8 @@ export class AddStoryComponent implements OnInit {
             title: this.userStoryTitle,
             story: this.userStory,
             author: this.author ? this.author : "Anonymous",
-            imageUrl:this.storyImage?this.storyImage:null
+            imageUrl:this.storyImage?this.storyImage:null,
+            blogtype: this.blogtype
           };
           this.blogService.addUserStory(userFullStory);
           this.userStory = null;

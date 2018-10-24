@@ -341,6 +341,8 @@ app.post("/addstory", (req, res) => {
   newStory.story = req.body.story;
   newStory.imageUrl = req.body.imageUrl;
   newStory.author = req.body.author;
+  newStory.blogtype = req.body.blogtype;
+
 
   newStory.save((err, insertStory) => {
     if (err) {

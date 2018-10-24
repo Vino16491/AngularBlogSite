@@ -5,6 +5,11 @@
   <div class="storyStyle">
     <angular-editor [(ngModel)]="userStory" [config]="editorConfig"></angular-editor>
   </div>
+  <mat-button-toggle-group name="blog style" aria-label="Blog Style" #group="matButtonToggleGroup" [(ngModel)]="blogtype">
+    <mat-button-toggle value="Designer's Blog">Bold</mat-button-toggle>
+    <mat-button-toggle value="The Psycho Blog">Italic</mat-button-toggle>
+    <mat-button-toggle value="ice-cream Blog">Underline</mat-button-toggle>
+  </mat-button-toggle-group>
   <div class="story_action-btn">
     <button mat-button color="primary" (click)="saveStory()">Save</button>
   </div>

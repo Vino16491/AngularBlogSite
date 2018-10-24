@@ -6,7 +6,8 @@ const blogSchema = new schema({
     title:String,
     story:String,
     imageUrl: String,
-    author:String
+    author:String,
+    blogtype:String
 
 })
 
