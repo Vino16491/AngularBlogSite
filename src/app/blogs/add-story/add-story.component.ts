@@ -93,7 +93,8 @@ export class AddStoryComponent implements OnInit {
   }
 
   searchImage(searchString) {
-    searchString = "beauty";
+    // searchString = "beauty";
+    if(searchString){
     this.blogService
       .searchPhoto(searchString)
       .subscribe(
@@ -112,7 +113,7 @@ export class AddStoryComponent implements OnInit {
 
           console.log(JSON.stringify(this.photo))
         }
-      );
+      );}
   }
 
   addImage(photoid, photourl){

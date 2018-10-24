@@ -1,12 +1,18 @@
 <div class="main-editor" fxLayout="column" fxLayoutAlign="start stretch">
   <div fxLayoutAlign="space-around center">
-    <input type="text" id="title" name="title" placeholder="Title" [(ngModel)]="userStoryTitle">
+    <input type="text" id="title" name="title" placeholder="Title" [(ngModel)]="userStoryTitle" style="background: #303030;">
   </div>
   <div class="storyStyle">
     <angular-editor [(ngModel)]="userStory" [config]="editorConfig"></angular-editor>
   </div>
   <div class="story_action-btn">
     <button mat-button color="primary" (click)="saveStory()">Save</button>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Enter text to Search Images" #imageSearch>
+    </mat-form-field>
+    <button mat-button (click)="searchImage(imageSearch.value)">search</button>
   </div>
 <div *ngIf="photo.length>0" fxLayout="row" fxLayoutGap="5px">
   <div *ngFor="let pic of photo; index as p">

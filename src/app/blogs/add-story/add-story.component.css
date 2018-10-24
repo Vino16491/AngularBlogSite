@@ -17,14 +17,14 @@ input:focus {
   font-family: 'Roboto';
   font-size: 18px;
   color: darkslategrey;
-  background: white;
+  /* background: white; */
   max-height: 60vh;
   position: relative;
   overflow: auto;
 }
 
 .main-editor{
-    background: white;
+    /* background: white; */
     min-height: 100vh;
     padding: 16px;
 }
