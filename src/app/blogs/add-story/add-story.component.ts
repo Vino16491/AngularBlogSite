@@ -52,7 +52,7 @@ export class AddStoryComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.searchImage("beauty");
+    
   }
 
   saveStory() {
@@ -93,7 +93,6 @@ export class AddStoryComponent implements OnInit {
   }
 
   searchImage(searchString) {
-    // searchString = "beauty";
     if(searchString){
     this.blogService
       .searchPhoto(searchString)
