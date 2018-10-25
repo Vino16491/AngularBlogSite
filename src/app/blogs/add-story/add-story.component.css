@@ -4,7 +4,7 @@ input[type=text] {
   font-size: 35px;
   border: none;
   font-family: 'Roboto';
-  color: gray;
+  color: white;
   text-align: center;
 
 }
@@ -16,7 +16,7 @@ input:focus {
 .storyStyle {
   font-family: 'Roboto';
   font-size: 18px;
-  color: darkslategrey;
+  color: white;
   /* background: white; */
   max-height: 60vh;
   position: relative;
