@@ -393,3 +393,6 @@ app.delete("/delete/:id", (req, res) => {
 });
 
 exports.blogapi = functions.https.onRequest(app);
+// app.listen(process.env.PORT || 4000, function(){
+//   console.log('Your node js server is running');
+// });
