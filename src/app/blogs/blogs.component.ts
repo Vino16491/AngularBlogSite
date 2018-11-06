@@ -31,6 +31,7 @@ export class BlogsComponent implements OnInit {
   blogsData() {
     this.blogdata.userStory().subscribe((blog: Idata) => {
       this.store.dispatch(new blogs.SetBlogs(blog.blog));
+      console.log(blog.blog)
       return (this.blogs = blog.blog);
     });
     // console.log(this.blogs);
