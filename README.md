@@ -5,8 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Blog site using angular
 
 This site is part of my 100DaysCodeChallenge started from 16th July 2018
-Site is deployed live on internet at below URL- https://naughty-swartz-71b755.netlify.com/
-short-url: https://goo.gl/jp71Pe
+Site is deployed live on internet at below URL- https://blogangulardev.netlify.com/
 gitlink: https://goo.gl/s1fHU8
 
 ## Development server
